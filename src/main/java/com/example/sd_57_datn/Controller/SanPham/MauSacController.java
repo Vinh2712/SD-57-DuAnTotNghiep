@@ -99,11 +99,13 @@ public class MauSacController {
         return false;
     }
 
+
     @GetMapping("/view-create")
     public String createPage(Model model) {
         model.addAttribute("mauSac", new MauSac());
         return "/MauSac/create";
     }
+
 
     @PostMapping("/create")
     public String create(Model model, @ModelAttribute("mauSac") MauSac mauSac, BindingResult result, RedirectAttributes attributes) {
@@ -113,12 +115,12 @@ public class MauSacController {
 
         if (mauSac.getTenMauSac() == null || mauSac.getTenMauSac().isEmpty() || mauSac.getTenMauSac().trim().length() == 0) {
             model.addAttribute("checkMauSacNotNull", "Tên màu sắc không được để trống");
-            return "/create";
+            return "/MauSac/create";
         }
 
         if (mauSac.getTenMauSac().matches("^\\d.*") || !mauSac.getTenMauSac().matches(".*[a-zA-Z].*")) {
             model.addAttribute("checkMauSacHopLe", "Tên màu sắc không hợp lệ");
-            return "/create";
+            return "/MauSac/create";
         }
 
         LocalDate ngayTao = LocalDate.now();
@@ -144,7 +146,7 @@ public class MauSacController {
         }
 
         model.addAttribute("mauSac", mauSacRepository.findById(id).orElse(null));
-        return "/edit";
+        return "/MauSac/edit";
     }
 
     @GetMapping("/MauSac/search")
@@ -161,8 +163,7 @@ public class MauSacController {
         } else {
             model.addAttribute("messageFind", "Bạn hãy nhập tên màu sắc muốn tìm kiếm!");
         }
-
-        return "/index";
+        return "/MauSac/index";
     }
 
     @RequestMapping("/MauSac/delete/{id}")

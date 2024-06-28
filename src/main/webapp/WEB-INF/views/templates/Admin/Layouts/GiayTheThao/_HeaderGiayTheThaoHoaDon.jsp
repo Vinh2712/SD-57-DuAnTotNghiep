@@ -145,13 +145,6 @@
                     <a style="color: red">Hello: ${userLog.tenUser} ( ${userLog.role} )</a>
                 </div>
 
-                <%--                <div class="cart-icon" style="text-align: center; margin-left: 200px">--%>
-                <%--                    <a href="${pageContext.request.contextPath}/gioHang/gioHangView">--%>
-                <%--                        <img src="/images/cart-fill-frame.jpg" alt="Cart">--%>
-                <%--                        <span style="" class="cart-count">0</span>--%>
-                <%--                    </a>--%>
-                <%--                </div>--%>
-
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <!-- Nav Item - Search Dropdown (Visible Only XS) -->

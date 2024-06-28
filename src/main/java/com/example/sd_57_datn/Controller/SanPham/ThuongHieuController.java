@@ -63,8 +63,11 @@ public class ThuongHieuController {
     }
 
 
+    }
+
 
     @GetMapping("/edit/{id}")
+
     public String getFormUpdate(Model model, @PathVariable("id") ThuongHieu thuongHieu){
         thuongHieu.setNgaySua(LocalDate.now().toString());
         model.addAttribute("th", thuongHieu);
@@ -78,10 +81,6 @@ public class ThuongHieuController {
             model.addAttribute("action", "update/"+id);
             return "thuongHieu/edit";
         }
-
         this.service.update(thuongHieu, id);
-
         return "redirect:/thuongHieu/hien-thi";
-    }
-
 }

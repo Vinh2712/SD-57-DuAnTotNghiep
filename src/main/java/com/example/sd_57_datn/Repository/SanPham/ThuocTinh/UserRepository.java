@@ -15,6 +15,7 @@ public interface UserRepository extends JpaRepository<User, UUID> {
     List<User> findByTenUserContainingOrderById(String tenUser);
     @Query("SELECT u FROM User u WHERE CAST(u.trangThai AS string) LIKE %:trangThai%")
     List<User> findByTrangThaiContainingOrderById(@Param("trangThai") Integer trangThai);
+  
     //Todo code đăng nhập
 
     User findByEmailAndAndMatKhau(String email,String matKhau);

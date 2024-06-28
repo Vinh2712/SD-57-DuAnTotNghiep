@@ -1,5 +1,4 @@
 package com.example.sd_57_datn.Service.SanPham;
-
 import com.example.sd_57_datn.Model.User;
 import com.example.sd_57_datn.Repository.SanPham.ThuocTinh.UserRepository;
 import com.example.sd_57_datn.Service.impl.UserServiceImpl;
@@ -12,7 +11,6 @@ import java.util.UUID;
 
 @Service
 public class UserService implements UserServiceImpl {
-
     @Autowired
     private UserRepository userRepository;
 

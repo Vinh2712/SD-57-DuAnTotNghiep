@@ -108,7 +108,6 @@
                     <a class="collapse-item" href="/chatLieu/hien-thi">Chất liệu</a>
                     <a class="collapse-item" href="/HuongDanBaoQuan/hien-thi">Hướng dẫn bảo quản</a>
                     <a class="collapse-item" href="/LotGiay/hien-thi">Lót giầy</a>
-
                 </div>
             </div>
 

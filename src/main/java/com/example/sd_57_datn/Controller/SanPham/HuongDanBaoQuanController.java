@@ -131,18 +131,42 @@ public class HuongDanBaoQuanController {
         HuongDanBaoQuan huongDanBaoQuan = huongDanBaoQuanRepository.findById(id).orElse(null);
         if(huongDanBaoQuan == null){
             model.addAttribute("messageFind", "Không tìm thấy id có mã: " +id);
-            return "/HuongDanBaoQuan/hien-thi";
-        }
+            return "/HuongDanBaoQuan/index";
 
         model.addAttribute("huongDanBaoQuan", huongDanBaoQuanRepository.findById(id).orElse(null));
         return "/HuongDanBaoQuan/edit";
     }
 
-    @GetMapping("/HuongDanBaoQuan/delete/{id}")
+    @GetMapping("/delete/{id}")
     public String delete(@PathVariable("id") HuongDanBaoQuan huongDanBaoQuan){
         huongDanBaoQuanRepository.delete(huongDanBaoQuan);
         return "redirect:/HuongDanBaoQuan/hien-thi";
     }
+
+    @GetMapping("/HuongDanBaoQuan/delete/{id}")
+    public String delete(@PathVariable("id") HuongDanBaoQuan huongDanBaoQuan){
+        huongDanBaoQuanRepository.delete(huongDanBaoQuan);
+        return "redirect:/HuongDanBaoQuan/list";
+    }
+
+//    @GetMapping("/search")
+//    public String searchHuongDanBaoQuan(@RequestParam(value = "tenHuongDanBaoQuan", required = false) String tenHuongDanBaoQuan, Model model) {
+//        List<HuongDanBaoQuan> listPageFind;
+//        if (tenHuongDanBaoQuan != null) {
+//            listPageFind = huongDanBaoQuanService.findHuongDanBaoQuan(tenHuongDanBaoQuan);
+//            if (listPageFind.size()!=0) {
+//                model.addAttribute("listPage", listPageFind);
+//                model.addAttribute("messageFindDone", "Tìm thấy dữ liệu");
+//                return "/HuongDanBaoQuan/list";
+//            } else {
+//                model.addAttribute("messageFindError", "Không tìm thấy dữ liệu");
+//            }
+//        } else {
+//            model.addAttribute("messageFind", "Bạn hãy nhập tên hướng dẫn bảo quản muốn tìm kiếm!");
+//        }
+//
+//        return "/HuongDanBaoQuan/index";
+//    }
 
 
     @ModelAttribute("tenHuongDanBaoQuan")

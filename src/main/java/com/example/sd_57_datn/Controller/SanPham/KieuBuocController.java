@@ -27,6 +27,11 @@ public class KieuBuocController {
     @Autowired
     private KieuBuocService kieuBuocService;
 
+    @GetMapping()
+    public String form(){
+        return "KieuBuoc/index";
+    }
+
     @GetMapping("/hien-thi")
     public String hienThi(Model model, @RequestParam(name = "num",defaultValue = "0") Integer num) {
         Page<KieuBuoc> kieuBuocPage = kieuBuocRepository.findAll(PageRequest.of(num,3));

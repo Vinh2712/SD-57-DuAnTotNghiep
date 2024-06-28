@@ -93,11 +93,13 @@ public class CoGiayController {
         return pageNumbers;
     }
 
+
     @GetMapping("/view-create")
     public String createPage(Model model) {
         model.addAttribute("coGiay", new CoGiay());
         return "/CoGiay/create";
     }
+
 
     @PostMapping("/create")
     public String create(Model model, @ModelAttribute("coGiay") CoGiay coGiay, BindingResult result, RedirectAttributes attributes) {
@@ -134,13 +136,14 @@ public class CoGiayController {
         CoGiay coGiay = coGiayRepository.findById(id).orElse(null);
         if (coGiay == null) {
             model.addAttribute("messageFind", "Không tìm thấy id có mã: " + id);
-            return "/CoGiay/list";
+            return "/CoGiay/index";
         }
 
         model.addAttribute("coGiay", coGiayRepository.findById(id).orElse(null));
         return "/CoGiay/edit";
     }
 
+  
     @GetMapping("/search")
     public String searchCoGiay(@RequestParam(value = "tenCoGiay", required = false) String tenCoGiay, Model model) {
         List<CoGiay> listPageFind;
@@ -162,9 +165,10 @@ public class CoGiayController {
     }
 
     @RequestMapping("/delete/{id}")
+
     public String delete(@PathVariable("id") CoGiay coGiay) {
         coGiayRepository.delete(coGiay);
-        return "redirect:/CoGiay/list";
+        return "redirect:/CoGiay/hien-thi";
     }
 
     @ModelAttribute("tenCoGiay")

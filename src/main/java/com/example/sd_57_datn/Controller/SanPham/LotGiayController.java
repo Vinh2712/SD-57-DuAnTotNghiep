@@ -93,7 +93,6 @@ public class LotGiayController {
     }
 
 
-
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable("id") LotGiay lotGiay){
         lotGiayRepository.delete(lotGiay);
