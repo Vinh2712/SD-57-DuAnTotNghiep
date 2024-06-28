@@ -2,6 +2,7 @@ package com.example.sd_57_datn.Controller.SanPham;
 
 
 import com.example.sd_57_datn.Model.HuongDanBaoQuan;
+import com.example.sd_57_datn.Model.MauSac;
 import com.example.sd_57_datn.Repository.SanPham.ThuocTinh.HuongDanBaoQuanRepository;
 import com.example.sd_57_datn.Service.SanPham.HuongDanBaoQuanService;
 import jakarta.servlet.ServletContext;
@@ -92,13 +93,13 @@ public class HuongDanBaoQuanController {
         return pageNumbers;
     }
 
-    @GetMapping("/HuongDanBaoQuan/create")
+    @GetMapping("/create")
     public String createPage(Model model){
         model.addAttribute("huongDanBaoQuan", new HuongDanBaoQuan());
         return "/HuongDanBaoQuan/create";
     }
 
-    @PostMapping("/HuongDanBaoQuan/create")
+    @PostMapping("/create")
     public String create(Model model, @ModelAttribute("huongDanBaoQuan") HuongDanBaoQuan huongDanBaoQuan, BindingResult result, RedirectAttributes attributes){
         if (result.hasErrors()){
             return "/HuongDanBaoQuan/create";
@@ -122,40 +123,25 @@ public class HuongDanBaoQuanController {
 
         huongDanBaoQuanRepository.save(huongDanBaoQuan);
         attributes.addFlashAttribute("message", "Thêm thành công!");
-        return "redirect:/HuongDanBaoQuan/list";
+        return "redirect:/HuongDanBaoQuan/hien-thi";
     }
 
-    @GetMapping("/HuongDanBaoQuan/edit/{id}")
+    @GetMapping("/edit/{id}")
     public String editPage(Model model, @PathVariable UUID id){
         HuongDanBaoQuan huongDanBaoQuan = huongDanBaoQuanRepository.findById(id).orElse(null);
         if(huongDanBaoQuan == null){
             model.addAttribute("messageFind", "Không tìm thấy id có mã: " +id);
-            return "/HuongDanBaoQuan/list";
-        }
+            return "/HuongDanBaoQuan/index";
 
         model.addAttribute("huongDanBaoQuan", huongDanBaoQuanRepository.findById(id).orElse(null));
         return "/HuongDanBaoQuan/edit";
     }
 
-//    @GetMapping("/search")
-//    public String searchMauSac(@RequestParam(value = "tenMauSac", required = false) String tenMauSac, Model model){
-//        List<MauSac> listPage;
-//        if(tenMauSac != null){
-//            listPage =mauSacRepository.findMauSacByTen(tenMauSac);
-//        }else {
-//            listPage = mauSacRepository.findAll();
-//        }
-//
-//        if (!listPage.isEmpty()){
-//            model.addAttribute("listPage", listPage);
-//        }else {
-//            model.addAttribute("message", "Không tìm thấy kết quả");
-//            listPage = mauSacRepository.findAll();
-//        }
-//
-//        model.addAttribute("listPage", listPage);
-//        return "/MauSac/list";
-//    }
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable("id") HuongDanBaoQuan huongDanBaoQuan){
+        huongDanBaoQuanRepository.delete(huongDanBaoQuan);
+        return "redirect:/HuongDanBaoQuan/hien-thi";
+    }
 
     @GetMapping("/HuongDanBaoQuan/delete/{id}")
     public String delete(@PathVariable("id") HuongDanBaoQuan huongDanBaoQuan){
@@ -163,7 +149,7 @@ public class HuongDanBaoQuanController {
         return "redirect:/HuongDanBaoQuan/list";
     }
 
-//    @GetMapping("/HuongDanBaoQuan/search")
+//    @GetMapping("/search")
 //    public String searchHuongDanBaoQuan(@RequestParam(value = "tenHuongDanBaoQuan", required = false) String tenHuongDanBaoQuan, Model model) {
 //        List<HuongDanBaoQuan> listPageFind;
 //        if (tenHuongDanBaoQuan != null) {
@@ -179,8 +165,9 @@ public class HuongDanBaoQuanController {
 //            model.addAttribute("messageFind", "Bạn hãy nhập tên hướng dẫn bảo quản muốn tìm kiếm!");
 //        }
 //
-//        return "/HuongDanBaoQuan/list";
+//        return "/HuongDanBaoQuan/index";
 //    }
+
 
     @ModelAttribute("tenHuongDanBaoQuan")
     public List<HuongDanBaoQuan> getListHuongDanBaoQuan() {

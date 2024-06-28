@@ -93,7 +93,7 @@
             <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header" style="color: black; font-size: 13px;">Pages</h6>
-                    <a class="collapse-item" href="/CoGiay/list">Cổ giầy</a>
+                    <a class="collapse-item" href="/CoGiay/hien-thi">Cổ giầy</a>
                     <a class="collapse-item" href="/kieuBuoc/hien-thi">Kiểu buộc</a>
                     <a class="collapse-item" href="/chatLieu/hien-thi">Chất liệu</a>
                     <a class="collapse-item" href="/congDung/hien-thi">Công dụng</a>
@@ -102,13 +102,12 @@
                     <a class="collapse-item" href="/dinhTanGiay/hien-thi">Đinh tán giầy</a>
                     <div class="collapse-divider"></div>
                     <h4 class="collapse-header" style="color: black; font-weight: bold; font-size: 15px">Other pages:</h4>
-                    <a class="collapse-item" href="/thuongHieu">Thương hiệu</a>
+                    <a class="collapse-item" href="/thuongHieu/hien-thi">Thương hiệu</a>
                     <a class="collapse-item" href="/trongLuong/hien-thi">Trọng lượng</a>
                     <a class="collapse-item" href="/form/hien-thi">Form</a>
                     <a class="collapse-item" href="/chatLieu/hien-thi">Chất liệu</a>
-                    <a class="collapse-item" href="/HuongDanBaoQuan/list">Hướng dẫn bảo quản</a>
-                    <a class="collapse-item" href="/LotGiay/list">Lót giầy</a>
-
+                    <a class="collapse-item" href="/HuongDanBaoQuan/hien-thi">Hướng dẫn bảo quản</a>
+                    <a class="collapse-item" href="/LotGiay/hien-thi">Lót giầy</a>
                 </div>
             </div>
 

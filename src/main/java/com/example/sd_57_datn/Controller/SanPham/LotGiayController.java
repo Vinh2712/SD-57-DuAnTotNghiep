@@ -77,7 +77,7 @@ public class LotGiayController {
 
         lotGiayRepository.save(lotGiay);
         attributes.addFlashAttribute("message", "Thêm thành công!");
-        return "redirect:/LotGiay/index";
+        return "redirect:/LotGiay/hien-thi";
     }
 
     @GetMapping("edit/{id}")
@@ -93,10 +93,9 @@ public class LotGiayController {
     }
 
 
-
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable("id") LotGiay lotGiay){
         lotGiayRepository.delete(lotGiay);
-        return "redirect:/LotGiay/index";
+        return "redirect:/LotGiay/hien-thi";
     }
 }

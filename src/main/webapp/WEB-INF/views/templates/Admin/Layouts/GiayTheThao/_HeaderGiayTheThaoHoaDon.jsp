@@ -145,8 +145,6 @@
                     <a style="color: red">Hello: ${userLog.tenUser} ( ${userLog.role} )</a>
                 </div>
 
-
-
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <!-- Nav Item - Search Dropdown (Visible Only XS) -->

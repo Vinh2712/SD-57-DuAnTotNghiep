@@ -99,16 +99,18 @@ public class MauSacController {
         return false;
     }
 
-    @GetMapping("/MauSac/view-create")
+
+    @GetMapping("/view-create")
     public String createPage(Model model) {
         model.addAttribute("mauSac", new MauSac());
         return "/MauSac/create";
     }
 
-    @PostMapping("/MauSac/create")
+
+    @PostMapping("/create")
     public String create(Model model, @ModelAttribute("mauSac") MauSac mauSac, BindingResult result, RedirectAttributes attributes) {
         if (result.hasErrors()) {
-            return "/MauSac/create";
+            return "/create";
         }
 
         if (mauSac.getTenMauSac() == null || mauSac.getTenMauSac().isEmpty() || mauSac.getTenMauSac().trim().length() == 0) {
@@ -135,7 +137,7 @@ public class MauSacController {
         return "redirect:/MauSac/index";
     }
 
-    @GetMapping("/MauSac/edit/{id}")
+    @GetMapping("/edit/{id}")
     public String editPage(Model model, @PathVariable UUID id) {
         MauSac mauSac = mauSacRepository.findById(id).orElse(null);
         if (mauSac == null) {
@@ -161,14 +163,13 @@ public class MauSacController {
         } else {
             model.addAttribute("messageFind", "Bạn hãy nhập tên màu sắc muốn tìm kiếm!");
         }
-
         return "/MauSac/index";
     }
 
     @RequestMapping("/MauSac/delete/{id}")
     public String delete(@PathVariable("id") MauSac mauSac) {
         mauSacRepository.delete(mauSac);
-        return "redirect:/MauSac/index";
+        return "redirect:/MauSac/hien-thi";
     }
 
 
