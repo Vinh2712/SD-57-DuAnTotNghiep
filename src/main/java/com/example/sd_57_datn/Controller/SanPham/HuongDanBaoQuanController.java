@@ -7,17 +7,18 @@ import com.example.sd_57_datn.Repository.SanPham.ThuocTinh.HuongDanBaoQuanReposi
 import com.example.sd_57_datn.Service.SanPham.HuongDanBaoQuanService;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpSession;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,7 +31,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequestMapping("HuongDanBaoQuan")
 public class HuongDanBaoQuanController {
     @Autowired
-        private HuongDanBaoQuanService huongDanBaoQuanService;
+    private HuongDanBaoQuanService huongDanBaoQuanService;
 
     @Autowired
     private HuongDanBaoQuanRepository huongDanBaoQuanRepository;
@@ -40,7 +41,7 @@ public class HuongDanBaoQuanController {
 
     @GetMapping("/hien-thi")
     public String listShowViewHuongDanBaoQuan(Model model,
-                                     HttpSession session,
+              HttpSession session,
                                      @RequestParam(name = "pageNum", required = false, defaultValue = "1") Integer pageNum,
                                      @RequestParam(name = "pageSize", required = false, defaultValue = "5") Integer pageSize
     ) {
@@ -132,7 +133,6 @@ public class HuongDanBaoQuanController {
         if(huongDanBaoQuan == null){
             model.addAttribute("messageFind", "Không tìm thấy id có mã: " +id);
             return "/HuongDanBaoQuan/index";
-
         model.addAttribute("huongDanBaoQuan", huongDanBaoQuanRepository.findById(id).orElse(null));
         return "/HuongDanBaoQuan/edit";
     }
@@ -140,34 +140,27 @@ public class HuongDanBaoQuanController {
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable("id") HuongDanBaoQuan huongDanBaoQuan){
         huongDanBaoQuanRepository.delete(huongDanBaoQuan);
-        return "redirect:/HuongDanBaoQuan/hien-thi";
+        return "redirect:/HuongDanBaoQuan/index";
     }
 
-    @GetMapping("/HuongDanBaoQuan/delete/{id}")
-    public String delete(@PathVariable("id") HuongDanBaoQuan huongDanBaoQuan){
-        huongDanBaoQuanRepository.delete(huongDanBaoQuan);
-        return "redirect:/HuongDanBaoQuan/list";
+    @GetMapping("/search")
+    public String searchHuongDanBaoQuan(@RequestParam(value = "tenHuongDanBaoQuan", required = false) String tenHuongDanBaoQuan, Model model) {
+        List<HuongDanBaoQuan> listPageFind;
+        if (tenHuongDanBaoQuan != null) {
+            listPageFind = huongDanBaoQuanService.findHuongDanBaoQuan(tenHuongDanBaoQuan);
+            if (listPageFind.size()!=0) {
+                model.addAttribute("listPage", listPageFind);
+                model.addAttribute("messageFindDone", "Tìm thấy dữ liệu");
+                return "/HuongDanBaoQuan/index";
+            } else {
+                model.addAttribute("messageFindError", "Không tìm thấy dữ liệu");
+            }
+        } else {
+            model.addAttribute("messageFind", "Bạn hãy nhập tên hướng dẫn bảo quản muốn tìm kiếm!");
+        }
+
+        return "/HuongDanBaoQuan/index";
     }
-
-//    @GetMapping("/search")
-//    public String searchHuongDanBaoQuan(@RequestParam(value = "tenHuongDanBaoQuan", required = false) String tenHuongDanBaoQuan, Model model) {
-//        List<HuongDanBaoQuan> listPageFind;
-//        if (tenHuongDanBaoQuan != null) {
-//            listPageFind = huongDanBaoQuanService.findHuongDanBaoQuan(tenHuongDanBaoQuan);
-//            if (listPageFind.size()!=0) {
-//                model.addAttribute("listPage", listPageFind);
-//                model.addAttribute("messageFindDone", "Tìm thấy dữ liệu");
-//                return "/HuongDanBaoQuan/list";
-//            } else {
-//                model.addAttribute("messageFindError", "Không tìm thấy dữ liệu");
-//            }
-//        } else {
-//            model.addAttribute("messageFind", "Bạn hãy nhập tên hướng dẫn bảo quản muốn tìm kiếm!");
-//        }
-//
-//        return "/HuongDanBaoQuan/index";
-//    }
-
 
     @ModelAttribute("tenHuongDanBaoQuan")
     public List<HuongDanBaoQuan> getListHuongDanBaoQuan() {
