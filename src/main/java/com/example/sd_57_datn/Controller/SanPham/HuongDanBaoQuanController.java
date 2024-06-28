@@ -1,11 +1,12 @@
 package com.example.sd_57_datn.Controller.SanPham;
 
+
 import com.example.sd_57_datn.Model.HuongDanBaoQuan;
+import com.example.sd_57_datn.Model.MauSac;
 import com.example.sd_57_datn.Repository.SanPham.ThuocTinh.HuongDanBaoQuanRepository;
 import com.example.sd_57_datn.Service.SanPham.HuongDanBaoQuanService;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpSession;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -14,11 +15,17 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("HuongDanBaoQuan")
@@ -34,9 +41,9 @@ public class HuongDanBaoQuanController {
 
     @GetMapping("/hien-thi")
     public String listShowViewHuongDanBaoQuan(Model model,
-                                              HttpSession session,
-                                              @RequestParam(name = "pageNum", required = false, defaultValue = "1") Integer pageNum,
-                                              @RequestParam(name = "pageSize", required = false, defaultValue = "5") Integer pageSize
+              HttpSession session,
+                                     @RequestParam(name = "pageNum", required = false, defaultValue = "1") Integer pageNum,
+                                     @RequestParam(name = "pageSize", required = false, defaultValue = "5") Integer pageSize
     ) {
 
         //Todo code tab trạng thái và phân trang
@@ -117,7 +124,7 @@ public class HuongDanBaoQuanController {
 
         huongDanBaoQuanRepository.save(huongDanBaoQuan);
         attributes.addFlashAttribute("message", "Thêm thành công!");
-        return "redirect:/HuongDanBaoQuan/index";
+        return "redirect:/HuongDanBaoQuan/hien-thi";
     }
 
     @GetMapping("/edit/{id}")
@@ -126,12 +133,9 @@ public class HuongDanBaoQuanController {
         if(huongDanBaoQuan == null){
             model.addAttribute("messageFind", "Không tìm thấy id có mã: " +id);
             return "/HuongDanBaoQuan/index";
-        }
-
         model.addAttribute("huongDanBaoQuan", huongDanBaoQuanRepository.findById(id).orElse(null));
         return "/HuongDanBaoQuan/edit";
     }
-
 
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable("id") HuongDanBaoQuan huongDanBaoQuan){

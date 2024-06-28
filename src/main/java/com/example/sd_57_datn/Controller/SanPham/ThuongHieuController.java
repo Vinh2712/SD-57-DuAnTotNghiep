@@ -25,6 +25,7 @@ public class ThuongHieuController {
     private ThuongHieu th = new ThuongHieu();
 
     @GetMapping("/hien-thi")
+
     public String getIndex(Model model, @RequestParam(name = "page", defaultValue = "1") int page) {
         Pageable pageable = PageRequest.of(page - 1, 5);
         model.addAttribute("list", service.pagination(pageable));
@@ -32,6 +33,7 @@ public class ThuongHieuController {
     }
 
     @GetMapping("/search")
+
     public String search(Model model, @RequestParam(name = "page", defaultValue = "1") int page, @RequestParam("name") String name) {
         Pageable pageable = PageRequest.of(page - 1, 5);
         model.addAttribute("list", this.service.search(pageable, name));
@@ -51,7 +53,6 @@ public class ThuongHieuController {
     @PostMapping("/create")
     public String add(@Valid @ModelAttribute("dg") ThuongHieu thuongHieu, BindingResult result) {
         if (result.hasErrors()) {
-
             return "thuongHieu/create";
         }
 
@@ -73,6 +74,7 @@ public class ThuongHieuController {
     }
 
     @PostMapping("/edit/update/{id}")
+
     public String update(@Valid @ModelAttribute("dg") ThuongHieu thuongHieu, @PathVariable("id") UUID id, BindingResult result, Model model) {
         if (result.hasErrors()) {
             model.addAttribute("action", "update/" + id);
@@ -80,5 +82,6 @@ public class ThuongHieuController {
         }
         this.service.update(thuongHieu, id);
         return "redirect:/thuongHieu/hien-thi";
+
     }
 }
