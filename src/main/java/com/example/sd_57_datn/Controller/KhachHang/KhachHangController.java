@@ -51,8 +51,8 @@ public class KhachHangController {
     @Autowired
     private KhachHangService khachHangService;
 
-    @Autowired
-    private GioHangRepository gioHangRepository;
+//    @Autowired
+//    private GioHangRepository gioHangRepository;
 
     @Autowired
     private KhachHangImpl khachHangImpl;
@@ -328,12 +328,12 @@ public class KhachHangController {
 
         khachHangRepository.save(khachHang);
 
-        Tạo mới giỏ hàng cho khách hàng luôn
-        GioHang gioHang = new GioHang();
-
-        gioHang.setKhachHang(khachHang);
-        session.setAttribute("gioHang",gioHang);
-        gioHangRepository.save(gioHang);
+//        Tạo mới giỏ hàng cho khách hàng luôn
+//        GioHang gioHang = new GioHang();
+//
+//        gioHang.setKhachHang(khachHang);
+//        session.setAttribute("gioHang",gioHang);
+//        gioHangRepository.save(gioHang);
 
 
         attributes.addFlashAttribute("message", "Đăng kí tài khoản thành công");

@@ -3,11 +3,12 @@ package com.example.sd_57_datn.Service.GiamGia;
 
 import com.example.sd_57_datn.Model.ChuongTrinhGiamGiaChiTietHoaDon;
 import com.example.sd_57_datn.Model.ChuongTrinhGiamGiaHoaDon;
+import com.example.sd_57_datn.Model.HoaDon;
 import com.example.sd_57_datn.Repository.GiamGia.ChuongTrinhGiamGiaChiTietHoaDonRepository;
+import com.example.sd_57_datn.Service.HoaDon.HoaDonService;
 import com.example.sd_57_datn.Service.impl.ChuongTrinhGiamGiaChiTietHoaDonImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;

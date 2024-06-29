@@ -87,10 +87,9 @@ public class HoaDonController {
     @Autowired
     private MauSacRepository mauSacRepository;
 
-
-    @Autowired
-    private GioHangRepository gioHangRepository;
-
+//
+//    @Autowired
+//    private GioHangRepository gioHangRepository;
 
 
     //Todo code view hóa đơn
@@ -414,22 +413,22 @@ public class HoaDonController {
 
                                 }
 
-                                UUID idKhachHang = (UUID) session.getAttribute("idKhachHang");
-                                List<GioHang> gioHangList = gioHangRepository.findByKhachHang_Id(idKhachHang);
-
-                                System.out.println("Danh sách ID của giỏ hàng cho khách hàng có ID là " + idKhachHang + ":");
-
-                                for (GioHang gioHang : gioHangList) {
-
-                                    System.out.println(gioHang.getId());
-
-                                    for (UUID giayTheThaoChiTietIdToDelete : giayTheThaoChiTietIdsToDelete) {
-
-                                        gioHangChiTietRepository.deleteByGioHang_IdAndGiayTheThaoChiTiet_Id(gioHang.getId(), giayTheThaoChiTietIdToDelete);
-
-                                    }
-
-                                }
+//                                UUID idKhachHang = (UUID) session.getAttribute("idKhachHang");
+//                                List<GioHang> gioHangList = gioHangRepository.findByKhachHang_Id(idKhachHang);
+//
+//                                System.out.println("Danh sách ID của giỏ hàng cho khách hàng có ID là " + idKhachHang + ":");
+//
+//                                for (GioHang gioHang : gioHangList) {
+//
+//                                    System.out.println(gioHang.getId());
+//
+//                                    for (UUID giayTheThaoChiTietIdToDelete : giayTheThaoChiTietIdsToDelete) {
+//
+//                                        gioHangChiTietRepository.deleteByGioHang_IdAndGiayTheThaoChiTiet_Id(gioHang.getId(), giayTheThaoChiTietIdToDelete);
+//
+//                                    }
+//
+//                                }
 
 
                                 hoaDonRepository.save(hoaDon);
@@ -724,22 +723,22 @@ public class HoaDonController {
 
                                 }
 
-                                UUID idKhachHang = (UUID) session.getAttribute("idKhachHang");
-                                List<GioHang> gioHangList = gioHangRepository.findByKhachHang_Id(idKhachHang);
-
-                                System.out.println("Danh sách ID của giỏ hàng cho khách hàng có ID là " + idKhachHang + ":");
-
-                                for (GioHang gioHang : gioHangList) {
-
-                                    System.out.println(gioHang.getId());
-
-                                    for (UUID giayTheThaoChiTietIdToDelete : giayTheThaoChiTietIdsToDelete) {
-
-                                        gioHangChiTietRepository.deleteByGioHang_IdAndGiayTheThaoChiTiet_Id(gioHang.getId(), giayTheThaoChiTietIdToDelete);
-
-                                    }
-
-                                }
+//                                UUID idKhachHang = (UUID) session.getAttribute("idKhachHang");
+//                                List<GioHang> gioHangList = gioHangRepository.findByKhachHang_Id(idKhachHang);
+//
+//                                System.out.println("Danh sách ID của giỏ hàng cho khách hàng có ID là " + idKhachHang + ":");
+//
+//                                for (GioHang gioHang : gioHangList) {
+//
+//                                    System.out.println(gioHang.getId());
+//
+//                                    for (UUID giayTheThaoChiTietIdToDelete : giayTheThaoChiTietIdsToDelete) {
+//
+//                                        gioHangChiTietRepository.deleteByGioHang_IdAndGiayTheThaoChiTiet_Id(gioHang.getId(), giayTheThaoChiTietIdToDelete);
+//
+//                                    }
+//
+//                                }
 
                                 hoaDonRepository.save(hoaDon);
 
@@ -787,101 +786,148 @@ public class HoaDonController {
     //Todo code thanh toán bằng momo
 
 
-    @GetMapping("paywithmomo")
-    public String PayWithMomoGet(@ModelAttribute("message") String message,
-                                 Model model,
-                                 @RequestParam(value = "orderId", required = false) String orderId,
-                                 HttpSession session) {
-
-        System.out.println("OrderId là: " + orderId);
-
-        }
-
-
-        if (orderId.contains("MaHD")) {
-
-            HoaDon hoaDon = hoaDonServiceImpl.finByMa(orderId);
-
-            if (message.equals("Successful.")) {
-
-                System.out.println("Thanh toán thành công ");
-
-
-                hoaDon.setTrangThai(1);
-                hoaDon.setTrangThaiMoney(1);
-
-
-                //Code ...
-                List<HoaDonChiTiet> hoaDonChiTiets = hoaDonChiTietRepository.findByHoaDon_Id(hoaDon.getId());
-                List<UUID> giayTheThaoChiTietIdsToDelete = new ArrayList<>();
-
-                model.addAttribute("hoaDonChiTiets", hoaDonChiTiets);
-
-                // Tìm hóa đơn để tính số lượng
-                for (HoaDonChiTiet hoaDonChiTietList : hoaDonChiTiets) {
-
-                    //Số lượng mua của khách hàng
-                    String soLuongMuaToString = hoaDonChiTietList.getSoLuong();
-                    int soLuongMua = Integer.parseInt(soLuongMuaToString);
-
-                    //Số lượng có trong kho
-                    GiayTheThaoChiTiet giayTheThaoChiTiet = hoaDonChiTietList.getGiayTheThaoChiTiet();
-                    String soLuongCoToString = giayTheThaoChiTiet.getSoLuong();
-                    int soLuongCo = Integer.parseInt(soLuongCoToString);
-
-                    giayTheThaoChiTiet.setSoLuong(Integer.toString(soLuongCo - soLuongMua));
-                    giayTheThaoChiTietRepository.save(giayTheThaoChiTiet);
-
-                    //Todo code fix bug
-                    UUID giayTheThaoChiTietId = hoaDonChiTietList.getGiayTheThaoChiTiet().getId();
-                    giayTheThaoChiTietIdsToDelete.add(giayTheThaoChiTietId);
-
-                }
-
-                UUID idKhachHang = (UUID) session.getAttribute("idKhachHang");
-                List<GioHang> gioHangList = gioHangRepository.findByKhachHang_Id(idKhachHang);
-
-                System.out.println("Danh sách ID của giỏ hàng cho khách hàng có ID là " + idKhachHang + ":");
-
-                for (GioHang gioHang : gioHangList) {
-
-                    System.out.println(gioHang.getId());
-
-                    for (UUID giayTheThaoChiTietIdToDelete : giayTheThaoChiTietIdsToDelete) {
-
-                        gioHangChiTietRepository.deleteByGioHang_IdAndGiayTheThaoChiTiet_Id(gioHang.getId(), giayTheThaoChiTietIdToDelete);
-
-                    }
-
-                }
-
-
-                hoaDonRepository.save(hoaDon);
-
-
-                //Lưu lại thông tin giao dịch
-                System.out.println("Thanh toán thành công !");
-                return "redirect:/TrangChu/listGiayTheThao";
-
-            } else {
-
-                hoaDon.setTrangThai(0);
-                hoaDon.setTrangThaiMoney(0);
-
-                hoaDonRepository.save(hoaDon);
-
-                System.out.println("Thanh toán thất bại");
-                return "redirect:/TrangChu/listGiayTheThao";
-
-            }
-
-        }
-
-
-        return "redirect:/TrangChu/listGiayTheThao";
-
-    }
-
+//    @GetMapping("paywithmomo")
+//    public String PayWithMomoGet(@ModelAttribute("message") String message,
+//                                 Model model,
+//                                 @RequestParam(value = "orderId", required = false) String orderId,
+//                                 HttpSession session) {
+//
+//        System.out.println("OrderId là: " + orderId);
+//        if (orderId.contains("GiaoDV")) {
+//
+//            //Tìm theo mã giao dịch
+//            GiaoDichViChiTiet giaoDichViChiTietNew = giaoDichViChiTietServiceImpl.findByMa(orderId);
+//
+//            if (message.equals("Successful.")) {
+//
+//                System.out.println("Nạp thành công!");
+//
+//                ViTien viTien = giaoDichViChiTietNew.getViTien();
+//
+//                BigDecimal tongTien = viTien.getThanhTien().add(giaoDichViChiTietNew.getDonGia());
+//
+//                ViTien viTienNew = new ViTien();
+//
+//                viTienNew.setMaViTien(viTien.getMaViTien());
+//                viTienNew.setKhachHang(viTien.getKhachHang());
+//                viTienNew.setThanhTien(tongTien);
+//                viTienNew.setTrangThai(1);
+//
+//                //Lưu lại thông tin của ví tiền
+//                viTienServiceImpl.update(viTien.getId(), viTienNew);
+//
+//                LocalDate ngayGiaoDich = LocalDate.now();
+//                String ngayGiaoDichToDate = ngayGiaoDich.toString();
+//                LocalDateTime now = LocalDateTime.now();
+//
+//                GiaoDichViChiTiet giaoDichViChiTiet = new GiaoDichViChiTiet();
+//
+//                giaoDichViChiTiet.setMaGiaoDichViChiTiet(giaoDichViChiTietNew.getMaGiaoDichViChiTiet());
+//                giaoDichViChiTiet.setViTien(viTien);
+//                giaoDichViChiTiet.setNgayGiaoDich(LocalDateTime.now());
+//                giaoDichViChiTiet.setDonGia(giaoDichViChiTietNew.getDonGia());
+//                giaoDichViChiTiet.setHinhThuc(1);
+//                giaoDichViChiTiet.setTrangThai(1);
+//
+//                //Lưu lại thông tin giao dịch
+//                giaoDichViChiTietServiceImpl.update(giaoDichViChiTietNew.getId(), giaoDichViChiTiet);
+//                session.setAttribute("napThanhCong", "2");
+//
+//                return "redirect:/KhachHang/ViDienTu/ViewViDienTu/" + session.getAttribute("maKH");
+//
+//            } else {
+//
+//                System.out.println("Thanh toán thất bại");
+//                session.setAttribute("napThatBai", "2");
+//                return "redirect:/KhachHang/ViDienTu/ViewViDienTu/" + session.getAttribute("maKH");
+//
+//            }
+//    }
+//
+//
+//        if (orderId.contains("MaHD")) {
+//
+//            HoaDon hoaDon = hoaDonServiceImpl.finByMa(orderId);
+//
+//            if (message.equals("Successful.")) {
+//
+//                System.out.println("Thanh toán thành công ");
+//
+//
+//                hoaDon.setTrangThai(1);
+//                hoaDon.setTrangThaiMoney(1);
+//
+//
+//                //Code ...
+//                List<HoaDonChiTiet> hoaDonChiTiets = hoaDonChiTietRepository.findByHoaDon_Id(hoaDon.getId());
+//                List<UUID> giayTheThaoChiTietIdsToDelete = new ArrayList<>();
+//
+//                model.addAttribute("hoaDonChiTiets", hoaDonChiTiets);
+//
+//                // Tìm hóa đơn để tính số lượng
+//                for (HoaDonChiTiet hoaDonChiTietList : hoaDonChiTiets) {
+//
+//                    //Số lượng mua của khách hàng
+//                    String soLuongMuaToString = hoaDonChiTietList.getSoLuong();
+//                    int soLuongMua = Integer.parseInt(soLuongMuaToString);
+//
+//                    //Số lượng có trong kho
+//                    GiayTheThaoChiTiet giayTheThaoChiTiet = hoaDonChiTietList.getGiayTheThaoChiTiet();
+//                    String soLuongCoToString = giayTheThaoChiTiet.getSoLuong();
+//                    int soLuongCo = Integer.parseInt(soLuongCoToString);
+//
+//                    giayTheThaoChiTiet.setSoLuong(Integer.toString(soLuongCo - soLuongMua));
+//                    giayTheThaoChiTietRepository.save(giayTheThaoChiTiet);
+//
+//                    //Todo code fix bug
+//                    UUID giayTheThaoChiTietId = hoaDonChiTietList.getGiayTheThaoChiTiet().getId();
+//                    giayTheThaoChiTietIdsToDelete.add(giayTheThaoChiTietId);
+//
+//                }
+//
+//                UUID idKhachHang = (UUID) session.getAttribute("idKhachHang");
+//                List<GioHang> gioHangList = gioHangRepository.findByKhachHang_Id(idKhachHang);
+//
+//                System.out.println("Danh sách ID của giỏ hàng cho khách hàng có ID là " + idKhachHang + ":");
+//
+//                for (GioHang gioHang : gioHangList) {
+//
+//                    System.out.println(gioHang.getId());
+//
+//                    for (UUID giayTheThaoChiTietIdToDelete : giayTheThaoChiTietIdsToDelete) {
+//
+//                        gioHangChiTietRepository.deleteByGioHang_IdAndGiayTheThaoChiTiet_Id(gioHang.getId(), giayTheThaoChiTietIdToDelete);
+//
+//                    }
+//
+//                }
+//
+//
+//                hoaDonRepository.save(hoaDon);
+//
+//
+//                //Lưu lại thông tin giao dịch
+//                System.out.println("Thanh toán thành công !");
+//                return "redirect:/TrangChu/listGiayTheThao";
+//
+//            } else {
+//
+//                hoaDon.setTrangThai(0);
+//                hoaDon.setTrangThaiMoney(0);
+//
+//                hoaDonRepository.save(hoaDon);
+//
+//                System.out.println("Thanh toán thất bại");
+//                return "redirect:/TrangChu/listGiayTheThao";
+//
+//            }
+//
+//        }
+//
+//
+//        return "redirect:/TrangChu/listGiayTheThao";
+//
+//    }
 
     //Todo code log swel thông báo cho thanh toán thành công cho đơn hàng
     @GetMapping("nguoiDung/hoaDon/thanhToan/ThanhCong")
