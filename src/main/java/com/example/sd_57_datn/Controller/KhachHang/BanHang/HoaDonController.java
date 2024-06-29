@@ -929,7 +929,6 @@ public class HoaDonController {
 //
 //    }
 
-
     //Todo code log swel thông báo cho thanh toán thành công cho đơn hàng
     @GetMapping("nguoiDung/hoaDon/thanhToan/ThanhCong")
     public String showViewThanhToanThanhCong(Model model) {
