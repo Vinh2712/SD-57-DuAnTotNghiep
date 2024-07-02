@@ -196,15 +196,17 @@
                             <label style="color: red">${erCheckGiaBanIsEmtry}</label>
                         </div>
                     </div>
-                    <div class="form-group col-md-4">
-                        <label style="margin-left: 30px">Giới tính :</label>
-                        <div class="gioiTinh" style="margin-top: 7px; margin-left: 50px">
-                            <input class="form-check-input" type="radio" name="gioiTinh" id="inlineRadio1" value="Nam" checked = "checked" >
-                            <label style="color: black; margin-right: 40px" class="form-check-label" for="inlineRadio1">Nam</label>
-                            <input class="form-check-input" type="radio" name="gioiTinh" id="inlineRadio2" value="Nữ">
-                            <label style="color: black" class="form-check-label" for="inlineRadio2">Nữ</label>
-                        </div>
-                    </div>
+
+<%--                    <div class="form-group col-md-4">--%>
+<%--                        <label style="margin-left: 30px">Giới tính :</label>--%>
+<%--                        <div class="gioiTinh" style="margin-top: 7px; margin-left: 50px">--%>
+<%--                            <input class="form-check-input" type="radio" name="gioiTinh" id="inlineRadio1" value="Nam" checked = "checked" >--%>
+<%--                            <label style="color: black; margin-right: 40px" class="form-check-label" for="inlineRadio1">Nam</label>--%>
+<%--                            <input class="form-check-input" type="radio" name="gioiTinh" id="inlineRadio2" value="Nữ">--%>
+<%--                            <label style="color: black" class="form-check-label" for="inlineRadio2">Nữ</label>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+
                 </div>
 
                 <div class="form-row">

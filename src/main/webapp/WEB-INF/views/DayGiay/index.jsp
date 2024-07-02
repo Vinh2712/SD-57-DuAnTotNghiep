@@ -9,28 +9,33 @@
 </head>
 <body>
 <%@ include file="../templates/Admin/Layouts/GiayTheThao/_HeaderGiayTheThao.jsp" %>
-<h1>Dây giày</h1>
-<div>
-    <div>
-        <h6 style="color:black;margin-top: 10px">Trạng thái</h6>
-        <select id="trangThai" style="width: 500px;height: 35px; border-radius: 5px 5px 5px">
-            <option value="" style="">Tất cả trạng thái </option>
-            <option value="1" style="">Đã kích hoạt </option>
-            <option value="0" style="">Chưa kích hoạt </option>
-        </select>
 
-        <br>
-        </form>
+<div class="container">
+    <h1>Dây giày</h1>
+    <div>
+        <div>
+            <h6 style="color:black;margin-top: 10px">Trạng thái</h6>
+            <select id="trangThai" style="width: 500px;height: 35px; border-radius: 5px 5px 5px">
+                <option value="" style="">Tất cả trạng thái </option>
+                <option value="1" style="">Đã kích hoạt </option>
+                <option value="0" style="">Chưa kích hoạt </option>
+            </select>
+
+            <br>
+            </form>
+        </div>
     </div>
 </div>
-</div>
 <br>
 <br>
-<form action="/dayGiay/search" method="get">
-    <label>Tìm kiếm:</label>
-    <input type="text" name="tenDayGiay">
-    <button type="submit" class="btn btn-info btn-sm" >Tìm kiếm</button>
-</form>
+
+    <form action="/dayGiay/search" method="get">
+        <label>Tìm kiếm:</label>
+        <input type="text" name="tenDayGiay">
+        <button type="submit" class="btn btn-info btn-sm" >Tìm kiếm</button>
+    </form>
+
+
 <br>
 <a href="/dayGiay/view-add" class="btn btn-info btn-sm"> Add </a>
 <br>
@@ -87,6 +92,9 @@
         </ul>
     </nav>
 </div>
+
+</div>
+
 <%@ include file="../templates/Admin/Layouts/GiayTheThao/_FooterGiayTheThao.jsp" %>
 </body>
 </html>

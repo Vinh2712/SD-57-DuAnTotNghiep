@@ -1,7 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="frm"%>
+
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="frm" %>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!DOCTYPE html>
@@ -11,12 +13,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Danh sách dữ liệu giầy thể thao</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
     <link href="/css/ChuongTrinhGiamGia/HoaDon/list.css" rel="stylesheet">
 
     <style>
         <%--        Dành cho tab--%>
-        .nav-tabs{
+
+        .nav-tabs {
+
             background-image: linear-gradient(
                     to bottom right, #25AEB8, #0DDB9F
             );
@@ -33,7 +40,10 @@
             position: relative;
             z-index: 1;
         }
-        .nav-item{
+
+
+        .nav-item {
+
             font-weight: bold;
             font-size: 15px;
             width: 140px;
@@ -45,13 +55,18 @@
             transition: 0.5s;
             cursor: pointer;
         }
-        .nav-item:nth-last-child(1){
+
+
+        .nav-item:nth-last-child(1) {
             border-right: none;
         }
-        .nav-item.active{
+
+        .nav-item.active {
             color: #555;
         }
-        .bg-active{
+
+        .bg-active {
+
             background-color: #eee;
             padding: 20px;
             width: 140px;
@@ -61,7 +76,10 @@
             z-index: -1;
             transition: 0.5s;
         }
-        .content-tabs{
+
+
+        .content-tabs {
+
             padding: 30px;
             background-color: #eee;
             color: #555;
@@ -70,22 +88,29 @@
             min-height: 300px;
             text-align: justify;
         }
-        .content-tabs .tab{
+
+
+        .content-tabs .tab {
             display: none;
         }
-        .content-tabs .tab.active{
+
+        .content-tabs .tab.active {
             display: block;
             animation: showContent 0.5s ease-in-out 1;
         }
-        @keyframes showContent{
-            from{
+
+        @keyframes showContent {
+            from {
                 opacity: 0;
                 transform: translateY(100px);
-            }to{
-                 opacity: 1;
-                 transform: translateY(0);
-             }
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
+
+
         <%--        Danh cho giá bán--%>
         #priceSlider {
             width: 300px;
@@ -112,6 +137,7 @@
             color: black; /* Màu chữ */
             text-align: center; /* Căn giữa nội dung trong ô */
         }
+
         .hide-row {
             display: none;
         }
@@ -137,16 +163,16 @@
             <div class="col-1">
                 <a href="/GiayTheThao/create" style="text-decoration: none">
                     <button class="button" style="width: 130px;margin-top: 0px; margin-bottom: 20px">
-                        <svg class="svg-icon" fill="none" height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><g stroke="#ff342b" stroke-linecap="round" stroke-width="1.5"><path d="m3.33337 10.8333c0 3.6819 2.98477 6.6667 6.66663 6.6667 3.682 0 6.6667-2.9848 6.6667-6.6667 0-3.68188-2.9847-6.66664-6.6667-6.66664-1.29938 0-2.51191.37174-3.5371 1.01468"></path><path d="m7.69867 1.58163-1.44987 3.28435c-.18587.42104.00478.91303.42582 1.0989l3.28438 1.44986"></path></g></svg>
-                        <span class="lable">Create</span>
-                    </button>
-                </a>
-            </div>
-            <div class="col-2" style="margin-left: 45px">
-                <a href="/GiayTheThao/listGiayTheThao" style="text-decoration: none">
-                    <button class="button" style="width: 130px;margin-top: 0px; margin-bottom: 20px">
-                        <svg class="svg-icon" fill="none" height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><g stroke="#ff342b" stroke-linecap="round" stroke-width="1.5"><path d="m3.33337 10.8333c0 3.6819 2.98477 6.6667 6.66663 6.6667 3.682 0 6.6667-2.9848 6.6667-6.6667 0-3.68188-2.9847-6.66664-6.6667-6.66664-1.29938 0-2.51191.37174-3.5371 1.01468"></path><path d="m7.69867 1.58163-1.44987 3.28435c-.18587.42104.00478.91303.42582 1.0989l3.28438 1.44986"></path></g></svg>
-                        <span class="lable">Reload</span>
+
+                        <svg class="svg-icon" fill="none" height="20" viewBox="0 0 20 20" width="20"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <g stroke="#ff342b" stroke-linecap="round" stroke-width="1.5">
+                                <path d="m3.33337 10.8333c0 3.6819 2.98477 6.6667 6.66663 6.6667 3.682 0 6.6667-2.9848 6.6667-6.6667 0-3.68188-2.9847-6.66664-6.6667-6.66664-1.29938 0-2.51191.37174-3.5371 1.01468"></path>
+                                <path d="m7.69867 1.58163-1.44987 3.28435c-.18587.42104.00478.91303.42582 1.0989l3.28438 1.44986"></path>
+                            </g>
+                        </svg>
+                        <span class="lable">Thêm</span>
+
                     </button>
                 </a>
             </div>
@@ -160,7 +186,10 @@
                         <div class="row">
                             <div class="col-6">
                                 <h6 style="color:black">Tên giầy thể thao</h6>
-                                <input style="width: 500px; height: 35px;border-radius: 5px 5px 5px" type="text" id="tenGiayTheThao" placeholder="Tên giầy thể thao">
+
+                                <input style="width: 500px; height: 35px;border-radius: 5px 5px 5px" type="text"
+                                       id="tenGiayTheThao" placeholder="Tên giầy thể thao">
+
                             </div>
                             <div class="col-6">
                                 <h6 style="color: black">Giá bán</h6>
@@ -171,7 +200,10 @@
                                 </div>
                                 <br>
                                 <div>
-                                    <p style="float: left;margin-right: 75px;color: black">Giá tối thiểu: <span id="minPrice">100.000</span></p>
+
+                                    <p style="float: left;margin-right: 75px;color: black">Giá tối thiểu: <span
+                                            id="minPrice">100.000</span></p>
+
                                     <p style="color: black">Giá tối đa: <span id="maxPrice">300.000</span></p>
                                 </div>
                             </div>
@@ -180,8 +212,12 @@
                             <div class="col-6">
                                 <h6 style="color:black;margin-top: 10px">Thương hiệu</h6>
                                 <%--                                <input style="width: 500px;height: 35px; border-radius: 5px 5px 5px" type="text" id="thuongHieu" placeholder="Thương hiệu">--%>
-                                <select style="width: 500px;height: 35px; border-radius: 5px 5px 5px;margin-bottom: 0px" type="text" id="thuongHieu">
-                                    <option style="border-radius: 5px 5px 5px" value="">Tất cả dữ liệu của thương hiệu</option>
+
+                                <select style="width: 500px;height: 35px; border-radius: 5px 5px 5px;margin-bottom: 0px"
+                                        type="text" id="thuongHieu">
+                                    <option style="border-radius: 5px 5px 5px" value="">Tất cả dữ liệu của thương hiệu
+                                    </option>
+
                                     <c:forEach items="${thuongHieu}" var="thuongHieu">
                                         <option style="border-radius: 5px 5px 5px">${thuongHieu.tenThuongHieu}</option>
                                     </c:forEach>
@@ -189,8 +225,12 @@
                             </div>
                             <div class="col-6">
                                 <h6 style="color:black;margin-top: 10px">Công dụng</h6>
-                                <select style="width: 500px;height: 35px; border-radius: 5px 5px 5px;margin-bottom: 0px" type="text" id="congDung">
-                                    <option style="border-radius: 5px 5px 5px" value="">Tất cả dữ liệu của công dụng</option>
+
+                                <select style="width: 500px;height: 35px; border-radius: 5px 5px 5px;margin-bottom: 0px"
+                                        type="text" id="congDung">
+                                    <option style="border-radius: 5px 5px 5px" value="">Tất cả dữ liệu của công dụng
+                                    </option>
+
                                     <c:forEach items="${congDung}" var="congDung">
                                         <option style="border-radius: 5px 5px 5px">${congDung.tenCongDung}</option>
                                     </c:forEach>
@@ -227,7 +267,10 @@
                     </a>
                 </div>
                 <br>
-                <div class="scrollable-list" style="width: 100%; max-height: 300px; overflow-y: auto; overflow-x: hidden">
+
+                <div class="scrollable-list"
+                     style="width: 100%; max-height: 300px; overflow-y: auto; overflow-x: hidden">
+
                     <table class="data-table" style="margin-top: 30px;width: 100%;border-radius: 50px 50px 50px">
                         <thead>
                         <tr>
@@ -249,25 +292,41 @@
                         </thead>
                         <tbody>
                         <c:forEach var="giayTheThao" items="${listPageFind}" varStatus="i">
-                            <tr class="product-item hide-row" data-tenGiayTheThao="${giayTheThao.tenGiayTheThao}" data-giaBan="${giayTheThao.giaBan}" data-thuongHieu="${giayTheThao.thuongHieu.tenThuongHieu}" data-congDung="${giayTheThao.congDung.tenCongDung}" data-trangThai="${giayTheThao.trangThai}">
+
+                            <tr class="product-item hide-row" data-tenGiayTheThao="${giayTheThao.tenGiayTheThao}"
+                                data-giaBan="${giayTheThao.giaBan}"
+                                data-thuongHieu="${giayTheThao.thuongHieu.tenThuongHieu}"
+                                data-congDung="${giayTheThao.congDung.tenCongDung}"
+                                data-trangThai="${giayTheThao.trangThai}">
+
 
                                 <td style="padding-top: 3px; text-align: center; color: black">${i.index+1}</td>
                                 <td style="padding-top: 3px; text-align: center; color: black">${giayTheThao.tenGiayTheThao}</td>
                                 <td style="padding-top: 3px; text-align: center; color: black">
-                                    <fmt:formatNumber type="" value="${giayTheThao.giaBan}" pattern="#,##0.###" />
+
+                                    <fmt:formatNumber type="" value="${giayTheThao.giaBan}" pattern="#,##0.###"/>
+
                                 </td>
                                 <td style="padding-top: 3px; text-align: center; color: black">${giayTheThao.thuongHieu.tenThuongHieu}</td>
                                 <td style="padding-top: 3px; text-align: center; color: black">${giayTheThao.congDung.tenCongDung}</td>
                                 <td style="padding-top: 3px; text-align: center; color: black">${giayTheThao.trangThai == 1 ? "✔" : "✖"}</td>
                                 <td>
-                                    <a class="col-sm-4" href="${pageContext.request.contextPath}/GiayTheThao/update/${giayTheThao.id}"><button class="btn btn-primary" style="margin-top: 3px" >Detail</button></a>
+
+                                    <a class="col-sm-4"
+                                       href="${pageContext.request.contextPath}/GiayTheThao/update/${giayTheThao.id}">
+                                        <button class="btn btn-primary" style="margin-top: 3px">Detail</button>
+                                    </a>
+
                                 </td>
                             </tr>
                         </c:forEach>
                         </tbody>
                     </table>
                     <div id="noResults" class="alert alert-warning" style="display: none;margin-top: 10px">
-                        <h5 style="text-align: center;height: 60px;margin-top: 40px">Không có dữ liệu phù hợp với bộ lọc hiện tại!</h5>
+
+                        <h5 style="text-align: center;height: 60px;margin-top: 40px">Không có dữ liệu phù hợp với bộ lọc
+                            hiện tại!</h5>
+
                     </div>
                 </div>
             </div>
@@ -276,15 +335,21 @@
         <br>
         <%--        Tab list--%>
 
-        <div class="sliderTab" >
+
+        <div class="sliderTab">
             <ul class="nav-tabs">
-                <li class="nav-item ${param.tab == 'active' ? 'active' : ''}" data-target="tab1" style="text-decoration: none;margin-bottom: 40px;" >
-                    <a href="${pageContext.request.contextPath}/GiayTheThao/listGiayTheThao?tab=active" class="nav-link" style="">
+                <li class="nav-item ${param.tab == 'active' ? 'active' : ''}" data-target="tab1"
+                    style="text-decoration: none;margin-bottom: 40px;">
+                    <a href="${pageContext.request.contextPath}/GiayTheThao/listGiayTheThao?tab=active" class="nav-link"
+                       style="">
                         Đã kích hoạt
                     </a>
                 </li>
-                <li class="nav-item ${param.tab == 'inactive' ? 'active' : ''}" data-target="tab2" style="text-decoration: none">
-                    <a href="${pageContext.request.contextPath}/GiayTheThao/listGiayTheThao?tab=inactive" class="nav-link" style="">
+                <li class="nav-item ${param.tab == 'inactive' ? 'active' : ''}" data-target="tab2"
+                    style="text-decoration: none">
+                    <a href="${pageContext.request.contextPath}/GiayTheThao/listGiayTheThao?tab=inactive"
+                       class="nav-link" style="">
+
                         Chưa kích hoạt
                     </a>
                 </li>
@@ -301,7 +366,7 @@
                             <th scope="col" style="text-align: center;color: black">Tên giầy thể thao</th>
                             <th scope="col" style="text-align: center;color: black">Image</th>
                             <th scope="col" style="text-align: center;color: black">Công dụng</th>
-                            <th scope="col" style="text-align: center;color: black">Giới tính</th>
+
                             <th scope="col" style="text-align: center;color: black">Giá bán VNĐ</th>
                             <th scope="col" style="text-align: center;color: black">Thương hiệu</th>
                             <th scope="col" style="text-align: center;color: black;width: 225px">Functions</th>
@@ -311,19 +376,30 @@
                         <c:forEach var="giayTheThao" items="${listPage}" varStatus="i">
                             <c:if test="${giayTheThao.trangThai eq 1}">
                                 <tr>
-                                    <th style="padding-top: 40px; text-align: center; color: black" scope="row">${i.index+1}</th>
+
+                                    <th style="padding-top: 40px; text-align: center; color: black"
+                                        scope="row">${i.index+1}</th>
                                     <td style="padding-top: 20px; text-align: center; color: black">${giayTheThao.tenGiayTheThao}</td>
                                     <td style="padding-top: 20px; text-align: center; color: black">
-                                        <img style="width: 100px;margin-bottom: 10px" src="/upload/${giayTheThao.image.get(0).link}" alt="">
+                                        <img style="width: 100px;margin-bottom: 10px"
+                                             src="/upload/${giayTheThao.image.get(0).link}" alt="">
                                     </td>
                                     <td style="padding-top: 20px; text-align: center; color: black">${giayTheThao.congDung.tenCongDung}</td>
-                                    <td style="padding-top: 20px; text-align: center; color: black">${giayTheThao.gioiTinh}</td>
-                                    <td style="padding-top: 20px; text-align: center; color: black"><fmt:formatNumber type="" value="${giayTheThao.giaBan}" pattern="#,##0.###" /> VNĐ</td>
+                                    <td style="padding-top: 20px; text-align: center; color: black"><fmt:formatNumber
+                                            type="" value="${giayTheThao.giaBan}" pattern="#,##0.###"/> VNĐ
+                                    </td>
                                     <td style="padding-top: 20px; text-align: center; color: black">${giayTheThao.thuongHieu.tenThuongHieu}</td>
                                     <td>
-                                        <a class="col-sm-4" href="${pageContext.request.contextPath}/GiayTheThao/update/${giayTheThao.id}"><button class="btn btn-primary" >Edit</button></a>
+                                        <a class="col-sm-4"
+                                           href="${pageContext.request.contextPath}/GiayTheThao/update/${giayTheThao.id}">
+                                            <button class="btn btn-primary">Edit</button>
+                                        </a>
 
-                                        <a class="col-sm-4" href="${pageContext.request.contextPath}/GiayTheThao/update/${giayTheThao.id}"><button class="btn btn-primary"  >Detail</button></a>
+                                        <a class="col-sm-4"
+                                           href="${pageContext.request.contextPath}/GiayTheThao/update/${giayTheThao.id}">
+                                            <button class="btn btn-primary">Detail</button>
+                                        </a>
+
                                     </td>
                                 </tr>
                             </c:if>
@@ -338,7 +414,10 @@
                                 <c:choose>
                                     <c:when test="${currentPage > 1}">
                                         <li class="page-item">
-                                            <a href="/GiayTheThao/listGiayTheThao?pageNum=${currentPage - 1}&tab=active" class="page-link" style="border: 1px solid red;width: 100px">Previous</a>
+
+                                            <a href="/GiayTheThao/listGiayTheThao?pageNum=${currentPage - 1}&tab=active"
+                                               class="page-link" style="border: 1px solid red;width: 100px">Previous</a>
+
                                         </li>
                                     </c:when>
                                     <c:otherwise>
@@ -348,13 +427,19 @@
 
                                 <c:forEach var="pageNumber" items="${pageNumbers}">
                                     <li class="page-item ${pageNumber == currentPage ? 'active' : ''}">
-                                        <a href="/GiayTheThao/listGiayTheThao?pageNum=${pageNumber}&tab=active" class="page-link">${pageNumber}</a>
+
+                                        <a href="/GiayTheThao/listGiayTheThao?pageNum=${pageNumber}&tab=active"
+                                           class="page-link">${pageNumber}</a>
+
                                     </li>
                                 </c:forEach>
 
                                 <c:if test="${currentPage < totalPage}">
                                     <li class="page-item">
-                                        <a href="/GiayTheThao/listGiayTheThao?pageNum=${currentPage + 1}&tab=active" class="page-link" style="border: 1px solid red; width: 50px">Next</a>
+
+                                        <a href="/GiayTheThao/listGiayTheThao?pageNum=${currentPage + 1}&tab=active"
+                                           class="page-link" style="border: 1px solid red; width: 50px">Next</a>
+
                                     </li>
                                 </c:if>
                             </ul>
@@ -373,7 +458,8 @@
                             <th scope="col" style="text-align: center;color: black">Tên giầy thể thao</th>
                             <th scope="col" style="text-align: center;color: black">Image</th>
                             <th scope="col" style="text-align: center;color: black">Công dụng</th>
-                            <th scope="col" style="text-align: center;color: black">Giới tính</th>
+
+
                             <th scope="col" style="text-align: center;color: black">Giá bán VNĐ</th>
                             <th scope="col" style="text-align: center;color: black">Thương hiệu</th>
                             <th scope="col" style="text-align: center;color: black">Functions</th>
@@ -383,18 +469,33 @@
                         <c:forEach var="giayTheThao" items="${listPage}" varStatus="i">
                             <c:if test="${giayTheThao.trangThai eq 0}">
                                 <tr>
-                                    <th style="padding-top: 40px; text-align: center; color: black" scope="row">${i.index+1}</th>
+
+                                    <th style="padding-top: 40px; text-align: center; color: black"
+                                        scope="row">${i.index+1}</th>
+
                                     <td style="padding-top: 20px; text-align: center; color: black">${giayTheThao.tenGiayTheThao}</td>
                                     <td style="padding-top: 20px; text-align: center; color: black">
                                         <span>NULL</span>
                                     </td>
                                     <td style="padding-top: 20px; text-align: center; color: black">${giayTheThao.congDung.tenCongDung}</td>
-                                    <td style="padding-top: 20px; text-align: center; color: black">${giayTheThao.gioiTinh}</td>
-                                    <td style="padding-top: 20px; text-align: center; color: black"><fmt:formatNumber type="" value="${giayTheThao.giaBan}" pattern="#,##0.###" /> VNĐ</td>
+
+                                        <%--                                    <td style="padding-top: 20px; text-align: center; color: black">${giayTheThao.gioiTinh}</td>--%>
+                                    <td style="padding-top: 20px; text-align: center; color: black"><fmt:formatNumber
+                                            type="" value="${giayTheThao.giaBan}" pattern="#,##0.###"/> VNĐ
+                                    </td>
                                     <td style="padding-top: 20px; text-align: center; color: black">${giayTheThao.thuongHieu.tenThuongHieu}</td>
                                     <td style="margin-bottom: 10px">
-                                        <a class="col-sm-4" href="${pageContext.request.contextPath}/GiayTheThao/update/${giayTheThao.id}"><button class="btn btn-primary" style="margin-left: 30px;float: left; margin-top: 22px">Edit</button></a>
-                                        <a class="col-sm-4" href="${pageContext.request.contextPath}/GiayTheThao/update/${giayTheThao.id}"><button class="btn btn-primary" style="margin-top: 0px">Detail</button></a>
+                                        <a class="col-sm-4"
+                                           href="${pageContext.request.contextPath}/GiayTheThao/update/${giayTheThao.id}">
+                                            <button class="btn btn-primary"
+                                                    style="margin-left: 30px;float: left; margin-top: 22px">Edit
+                                            </button>
+                                        </a>
+                                        <a class="col-sm-4"
+                                           href="${pageContext.request.contextPath}/GiayTheThao/update/${giayTheThao.id}">
+                                            <button class="btn btn-primary" style="margin-top: 0px">Detail</button>
+                                        </a>
+
                                     </td>
                                 </tr>
                             </c:if>
@@ -408,7 +509,10 @@
                                 <c:choose>
                                     <c:when test="${currentPage > 1}">
                                         <li class="page-item">
-                                            <a href="/GiayTheThao/listGiayTheThao?pageNum=${currentPage - 1}&tab=inactive" class="page-link" style="border: 1px solid red;width: 100px">Previous</a>
+
+                                            <a href="/GiayTheThao/listGiayTheThao?pageNum=${currentPage - 1}&tab=inactive"
+                                               class="page-link" style="border: 1px solid red;width: 100px">Previous</a>
+
                                         </li>
                                     </c:when>
                                     <c:otherwise>
@@ -418,13 +522,19 @@
 
                                 <c:forEach var="pageNumber" items="${pageNumbers}">
                                     <li class="page-item ${pageNumber == currentPage ? 'active' : ''}">
-                                        <a href="/GiayTheThao/listGiayTheThao?pageNum=${pageNumber}&tab=inactive" class="page-link">${pageNumber}</a>
+
+                                        <a href="/GiayTheThao/listGiayTheThao?pageNum=${pageNumber}&tab=inactive"
+                                           class="page-link">${pageNumber}</a>
+
                                     </li>
                                 </c:forEach>
 
                                 <c:if test="${currentPage < totalPage}">
                                     <li class="page-item">
-                                        <a href="/GiayTheThao/listGiayTheThao?pageNum=${currentPage + 1}&tab=inactive" class="page-link" style="border: 1px solid red; width: 50px">Next</a>
+
+                                        <a href="/GiayTheThao/listGiayTheThao?pageNum=${currentPage + 1}&tab=inactive"
+                                           class="page-link" style="border: 1px solid red; width: 50px">Next</a>
+
                                     </li>
                                 </c:if>
                             </ul>
@@ -462,8 +572,16 @@
 
     giaBanSlider.noUiSlider.on('update', function (values, handle) {
         var selectedValues = giaBanSlider.noUiSlider.get();
-        minPrice.innerHTML = parseFloat(selectedValues[0]).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
-        maxPrice.innerHTML = parseFloat(selectedValues[1]).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+
+        minPrice.innerHTML = parseFloat(selectedValues[0]).toLocaleString('vi-VN', {
+            style: 'currency',
+            currency: 'VND'
+        });
+        maxPrice.innerHTML = parseFloat(selectedValues[1]).toLocaleString('vi-VN', {
+            style: 'currency',
+            currency: 'VND'
+        });
+
 
         // Gọi hàm filterProducts ở đây để lọc dựa trên khoảng giá đã chọn.
         filterProducts();
@@ -529,9 +647,16 @@
 
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+
 
 </body>
 </html>
