@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="frm"%>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="frm" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,31 +35,32 @@
     <div class="container-login100">
         <div class="wrap-login100">
             <div class="login100-pic js-tilt" data-tilt>
-                <img src="/images/img-01.jpg" alt="IMG">
+                <img src="https://airproductionservice.com/wp-content/uploads/2021/05/Login.jpg" alt="IMG">
             </div>
 
             <frm:form modelAttribute="user"
                       action="${pageContext.request.contextPath}/UserLog/login"
                       method="POST" class="login100-form validate-form">
 
-                    <div class="row">
-                        <div class="col-12">
-                            <h6 style="margin-left: 10px;margin-bottom: 10px;color: red">${message}</h6>
-                            <h5 style="margin-left: 10px;margin-bottom: 10px;color: red">${messageLogout}</h5>
-                        </div>
+                <div class="row">
+                    <div class="col-12">
+                        <h6 style="margin-left: 10px;margin-bottom: 10px;color: red">${message}</h6>
+                        <h5 style="margin-left: 10px;margin-bottom: 10px;color: red">${messageLogout}</h5>
                     </div>
-					<span class="login100-form-title" style="color: black; font-size: 30px; font-weight: bold" >
-                        Đăng nhập
+                </div>
+                <span class="login100-form-title" style="color: black; font-size: 30px; font-weight: bold">
+                        Login
 					</span>
 
-                <div class="wrap-input100 validate-input" data-validate = "....@email.com">
-                    <frm:input path="email" class="input100" type="text" name="email" placeholder="Email" style="font-weight: bold; font-size: 15px"/>
+                <div class="wrap-input100 validate-input" data-validate="....@email.com">
+                    <frm:input path="email" class="input100" type="text" name="email" placeholder="Email"
+                               style="font-weight: bold; font-size: 15px"/>
 
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
 					</span>
-                        <%--                    <div class="textTitle"><frm:errors class="errors" path="email" /></div>--%>
+
                 </div>
                 <div>
                     <label>
@@ -68,8 +69,9 @@
 
                     </label>
                 </div>
-                <div class="wrap-input100 validate-input" data-validate = "Input type number or String">
-                    <frm:input path="matKhau" class="input100" type="password" name="pass" placeholder="Password" style="font-weight: bold; font-size: 15px"/>
+                <div class="wrap-input100 validate-input" data-validate="Input type number or String">
+                    <frm:input path="matKhau" class="input100" type="password" name="pass" placeholder="Password"
+                               style="font-weight: bold; font-size: 15px"/>
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -78,15 +80,15 @@
 
                 <br>
                 <div class="label" style="color: red; font-size: 15px">
-                        <span style="color: red">${erLogLogin}</span>
-                        <span style="color: red">${messageTrangThai}</span>
-                        <span style="color: red">${messageErol}</span>
-                        <span style="color: red">${erUserNoNull}</span>
+                    <span style="color: red">${erLogLogin}</span>
+                    <span style="color: red">${messageTrangThai}</span>
+                    <span style="color: red">${messageErol}</span>
+                    <span style="color: red">${erUserNoNull}</span>
                 </div>
 
                 <div class="container-login100-form-btn">
                     <button type="submit" class="login100-form-btn">
-                        Login
+                        Đăng nhập
                     </button>
                 </div>
 
@@ -94,7 +96,7 @@
 						<span class="txt1">
 						</span>
                     <a class="txt2" href="/Admin/viewQuenMatKhau/2">
-                        <u style="font-size: 15px ; color: black">Quên mật khẩu</u>
+                        <u style="font-size: 15px ; color: black">Quên mật khẩu ?</u>
                     </a>
                 </div>
 
@@ -102,8 +104,6 @@
         </div>
     </div>
 </div>
-
-
 
 
 <!--===============================================================================================-->
@@ -115,14 +115,13 @@
 <script src="/vendor/select2/select2.min.js"></script>
 <!--===============================================================================================-->
 <script src="/vendor/tilt/tilt.jquery.min.js"></script>
-<script >
+<script>
     $('.js-tilt').tilt({
         scale: 1.1
     })
 </script>
 <!--===============================================================================================-->
 <script src="/js/main.js"></script>
-
 
 
 </body>
