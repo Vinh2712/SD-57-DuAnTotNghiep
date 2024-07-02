@@ -9,6 +9,7 @@
 </head>
 <body>
 <%@ include file="../templates/Admin/Layouts/GiayTheThao/_HeaderGiayTheThao.jsp" %>
+
 <div class="container">
     <h1>Dây giày</h1>
     <div>
@@ -33,6 +34,7 @@
         <input type="text" name="tenDayGiay">
         <button type="submit" class="btn btn-info btn-sm" >Tìm kiếm</button>
     </form>
+
 
 <br>
 <a href="/dayGiay/view-add" class="btn btn-info btn-sm"> Add </a>
@@ -90,7 +92,9 @@
         </ul>
     </nav>
 </div>
+
 </div>
+
 <%@ include file="../templates/Admin/Layouts/GiayTheThao/_FooterGiayTheThao.jsp" %>
 </body>
 </html>

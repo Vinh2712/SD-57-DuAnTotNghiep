@@ -1,7 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="frm" %>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!DOCTYPE html>
@@ -11,13 +13,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Danh sách dữ liệu giầy thể thao</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.css">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
     <link href="/css/ChuongTrinhGiamGia/HoaDon/list.css" rel="stylesheet">
 
     <style>
         <%--        Dành cho tab--%>
+
         .nav-tabs {
+
             background-image: linear-gradient(
                     to bottom right, #25AEB8, #0DDB9F
             );
@@ -35,7 +41,9 @@
             z-index: 1;
         }
 
+
         .nav-item {
+
             font-weight: bold;
             font-size: 15px;
             width: 140px;
@@ -48,6 +56,7 @@
             cursor: pointer;
         }
 
+
         .nav-item:nth-last-child(1) {
             border-right: none;
         }
@@ -57,6 +66,7 @@
         }
 
         .bg-active {
+
             background-color: #eee;
             padding: 20px;
             width: 140px;
@@ -67,7 +77,9 @@
             transition: 0.5s;
         }
 
+
         .content-tabs {
+
             padding: 30px;
             background-color: #eee;
             color: #555;
@@ -76,6 +88,7 @@
             min-height: 300px;
             text-align: justify;
         }
+
 
         .content-tabs .tab {
             display: none;
@@ -96,6 +109,7 @@
                 transform: translateY(0);
             }
         }
+
 
         <%--        Danh cho giá bán--%>
         #priceSlider {
@@ -149,6 +163,7 @@
             <div class="col-1">
                 <a href="/GiayTheThao/create" style="text-decoration: none">
                     <button class="button" style="width: 130px;margin-top: 0px; margin-bottom: 20px">
+
                         <svg class="svg-icon" fill="none" height="20" viewBox="0 0 20 20" width="20"
                              xmlns="http://www.w3.org/2000/svg">
                             <g stroke="#ff342b" stroke-linecap="round" stroke-width="1.5">
@@ -157,6 +172,7 @@
                             </g>
                         </svg>
                         <span class="lable">Thêm</span>
+
                     </button>
                 </a>
             </div>
@@ -170,8 +186,10 @@
                         <div class="row">
                             <div class="col-6">
                                 <h6 style="color:black">Tên giầy thể thao</h6>
+
                                 <input style="width: 500px; height: 35px;border-radius: 5px 5px 5px" type="text"
                                        id="tenGiayTheThao" placeholder="Tên giầy thể thao">
+
                             </div>
                             <div class="col-6">
                                 <h6 style="color: black">Giá bán</h6>
@@ -182,8 +200,10 @@
                                 </div>
                                 <br>
                                 <div>
+
                                     <p style="float: left;margin-right: 75px;color: black">Giá tối thiểu: <span
                                             id="minPrice">100.000</span></p>
+
                                     <p style="color: black">Giá tối đa: <span id="maxPrice">300.000</span></p>
                                 </div>
                             </div>
@@ -192,10 +212,12 @@
                             <div class="col-6">
                                 <h6 style="color:black;margin-top: 10px">Thương hiệu</h6>
                                 <%--                                <input style="width: 500px;height: 35px; border-radius: 5px 5px 5px" type="text" id="thuongHieu" placeholder="Thương hiệu">--%>
+
                                 <select style="width: 500px;height: 35px; border-radius: 5px 5px 5px;margin-bottom: 0px"
                                         type="text" id="thuongHieu">
                                     <option style="border-radius: 5px 5px 5px" value="">Tất cả dữ liệu của thương hiệu
                                     </option>
+
                                     <c:forEach items="${thuongHieu}" var="thuongHieu">
                                         <option style="border-radius: 5px 5px 5px">${thuongHieu.tenThuongHieu}</option>
                                     </c:forEach>
@@ -203,10 +225,12 @@
                             </div>
                             <div class="col-6">
                                 <h6 style="color:black;margin-top: 10px">Công dụng</h6>
+
                                 <select style="width: 500px;height: 35px; border-radius: 5px 5px 5px;margin-bottom: 0px"
                                         type="text" id="congDung">
                                     <option style="border-radius: 5px 5px 5px" value="">Tất cả dữ liệu của công dụng
                                     </option>
+
                                     <c:forEach items="${congDung}" var="congDung">
                                         <option style="border-radius: 5px 5px 5px">${congDung.tenCongDung}</option>
                                     </c:forEach>
@@ -243,8 +267,10 @@
                     </a>
                 </div>
                 <br>
+
                 <div class="scrollable-list"
                      style="width: 100%; max-height: 300px; overflow-y: auto; overflow-x: hidden">
+
                     <table class="data-table" style="margin-top: 30px;width: 100%;border-radius: 50px 50px 50px">
                         <thead>
                         <tr>
@@ -266,33 +292,41 @@
                         </thead>
                         <tbody>
                         <c:forEach var="giayTheThao" items="${listPageFind}" varStatus="i">
+
                             <tr class="product-item hide-row" data-tenGiayTheThao="${giayTheThao.tenGiayTheThao}"
                                 data-giaBan="${giayTheThao.giaBan}"
                                 data-thuongHieu="${giayTheThao.thuongHieu.tenThuongHieu}"
                                 data-congDung="${giayTheThao.congDung.tenCongDung}"
                                 data-trangThai="${giayTheThao.trangThai}">
 
+
                                 <td style="padding-top: 3px; text-align: center; color: black">${i.index+1}</td>
                                 <td style="padding-top: 3px; text-align: center; color: black">${giayTheThao.tenGiayTheThao}</td>
                                 <td style="padding-top: 3px; text-align: center; color: black">
+
                                     <fmt:formatNumber type="" value="${giayTheThao.giaBan}" pattern="#,##0.###"/>
+
                                 </td>
                                 <td style="padding-top: 3px; text-align: center; color: black">${giayTheThao.thuongHieu.tenThuongHieu}</td>
                                 <td style="padding-top: 3px; text-align: center; color: black">${giayTheThao.congDung.tenCongDung}</td>
                                 <td style="padding-top: 3px; text-align: center; color: black">${giayTheThao.trangThai == 1 ? "✔" : "✖"}</td>
                                 <td>
+
                                     <a class="col-sm-4"
                                        href="${pageContext.request.contextPath}/GiayTheThao/update/${giayTheThao.id}">
                                         <button class="btn btn-primary" style="margin-top: 3px">Detail</button>
                                     </a>
+
                                 </td>
                             </tr>
                         </c:forEach>
                         </tbody>
                     </table>
                     <div id="noResults" class="alert alert-warning" style="display: none;margin-top: 10px">
+
                         <h5 style="text-align: center;height: 60px;margin-top: 40px">Không có dữ liệu phù hợp với bộ lọc
                             hiện tại!</h5>
+
                     </div>
                 </div>
             </div>
@@ -300,6 +334,7 @@
         <br>
         <br>
         <%--        Tab list--%>
+
 
         <div class="sliderTab">
             <ul class="nav-tabs">
@@ -314,6 +349,7 @@
                     style="text-decoration: none">
                     <a href="${pageContext.request.contextPath}/GiayTheThao/listGiayTheThao?tab=inactive"
                        class="nav-link" style="">
+
                         Chưa kích hoạt
                     </a>
                 </li>
@@ -330,6 +366,7 @@
                             <th scope="col" style="text-align: center;color: black">Tên giầy thể thao</th>
                             <th scope="col" style="text-align: center;color: black">Image</th>
                             <th scope="col" style="text-align: center;color: black">Công dụng</th>
+
                             <th scope="col" style="text-align: center;color: black">Giá bán VNĐ</th>
                             <th scope="col" style="text-align: center;color: black">Thương hiệu</th>
                             <th scope="col" style="text-align: center;color: black;width: 225px">Functions</th>
@@ -339,6 +376,7 @@
                         <c:forEach var="giayTheThao" items="${listPage}" varStatus="i">
                             <c:if test="${giayTheThao.trangThai eq 1}">
                                 <tr>
+
                                     <th style="padding-top: 40px; text-align: center; color: black"
                                         scope="row">${i.index+1}</th>
                                     <td style="padding-top: 20px; text-align: center; color: black">${giayTheThao.tenGiayTheThao}</td>
@@ -361,6 +399,7 @@
                                            href="${pageContext.request.contextPath}/GiayTheThao/update/${giayTheThao.id}">
                                             <button class="btn btn-primary">Detail</button>
                                         </a>
+
                                     </td>
                                 </tr>
                             </c:if>
@@ -375,8 +414,10 @@
                                 <c:choose>
                                     <c:when test="${currentPage > 1}">
                                         <li class="page-item">
+
                                             <a href="/GiayTheThao/listGiayTheThao?pageNum=${currentPage - 1}&tab=active"
                                                class="page-link" style="border: 1px solid red;width: 100px">Previous</a>
+
                                         </li>
                                     </c:when>
                                     <c:otherwise>
@@ -386,15 +427,19 @@
 
                                 <c:forEach var="pageNumber" items="${pageNumbers}">
                                     <li class="page-item ${pageNumber == currentPage ? 'active' : ''}">
+
                                         <a href="/GiayTheThao/listGiayTheThao?pageNum=${pageNumber}&tab=active"
                                            class="page-link">${pageNumber}</a>
+
                                     </li>
                                 </c:forEach>
 
                                 <c:if test="${currentPage < totalPage}">
                                     <li class="page-item">
+
                                         <a href="/GiayTheThao/listGiayTheThao?pageNum=${currentPage + 1}&tab=active"
                                            class="page-link" style="border: 1px solid red; width: 50px">Next</a>
+
                                     </li>
                                 </c:if>
                             </ul>
@@ -413,6 +458,8 @@
                             <th scope="col" style="text-align: center;color: black">Tên giầy thể thao</th>
                             <th scope="col" style="text-align: center;color: black">Image</th>
                             <th scope="col" style="text-align: center;color: black">Công dụng</th>
+
+
                             <th scope="col" style="text-align: center;color: black">Giá bán VNĐ</th>
                             <th scope="col" style="text-align: center;color: black">Thương hiệu</th>
                             <th scope="col" style="text-align: center;color: black">Functions</th>
@@ -422,13 +469,16 @@
                         <c:forEach var="giayTheThao" items="${listPage}" varStatus="i">
                             <c:if test="${giayTheThao.trangThai eq 0}">
                                 <tr>
+
                                     <th style="padding-top: 40px; text-align: center; color: black"
                                         scope="row">${i.index+1}</th>
+
                                     <td style="padding-top: 20px; text-align: center; color: black">${giayTheThao.tenGiayTheThao}</td>
                                     <td style="padding-top: 20px; text-align: center; color: black">
                                         <span>NULL</span>
                                     </td>
                                     <td style="padding-top: 20px; text-align: center; color: black">${giayTheThao.congDung.tenCongDung}</td>
+
                                         <%--                                    <td style="padding-top: 20px; text-align: center; color: black">${giayTheThao.gioiTinh}</td>--%>
                                     <td style="padding-top: 20px; text-align: center; color: black"><fmt:formatNumber
                                             type="" value="${giayTheThao.giaBan}" pattern="#,##0.###"/> VNĐ
@@ -445,6 +495,7 @@
                                            href="${pageContext.request.contextPath}/GiayTheThao/update/${giayTheThao.id}">
                                             <button class="btn btn-primary" style="margin-top: 0px">Detail</button>
                                         </a>
+
                                     </td>
                                 </tr>
                             </c:if>
@@ -458,8 +509,10 @@
                                 <c:choose>
                                     <c:when test="${currentPage > 1}">
                                         <li class="page-item">
+
                                             <a href="/GiayTheThao/listGiayTheThao?pageNum=${currentPage - 1}&tab=inactive"
                                                class="page-link" style="border: 1px solid red;width: 100px">Previous</a>
+
                                         </li>
                                     </c:when>
                                     <c:otherwise>
@@ -469,15 +522,19 @@
 
                                 <c:forEach var="pageNumber" items="${pageNumbers}">
                                     <li class="page-item ${pageNumber == currentPage ? 'active' : ''}">
+
                                         <a href="/GiayTheThao/listGiayTheThao?pageNum=${pageNumber}&tab=inactive"
                                            class="page-link">${pageNumber}</a>
+
                                     </li>
                                 </c:forEach>
 
                                 <c:if test="${currentPage < totalPage}">
                                     <li class="page-item">
+
                                         <a href="/GiayTheThao/listGiayTheThao?pageNum=${currentPage + 1}&tab=inactive"
                                            class="page-link" style="border: 1px solid red; width: 50px">Next</a>
+
                                     </li>
                                 </c:if>
                             </ul>
@@ -515,6 +572,7 @@
 
     giaBanSlider.noUiSlider.on('update', function (values, handle) {
         var selectedValues = giaBanSlider.noUiSlider.get();
+
         minPrice.innerHTML = parseFloat(selectedValues[0]).toLocaleString('vi-VN', {
             style: 'currency',
             currency: 'VND'
@@ -523,6 +581,7 @@
             style: 'currency',
             currency: 'VND'
         });
+
 
         // Gọi hàm filterProducts ở đây để lọc dựa trên khoảng giá đã chọn.
         filterProducts();
@@ -597,6 +656,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
+
 
 </body>
 </html>

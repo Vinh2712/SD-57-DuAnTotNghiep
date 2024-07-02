@@ -196,6 +196,7 @@
                             <label style="color: red">${erCheckGiaBanIsEmtry}</label>
                         </div>
                     </div>
+
 <%--                    <div class="form-group col-md-4">--%>
 <%--                        <label style="margin-left: 30px">Giới tính :</label>--%>
 <%--                        <div class="gioiTinh" style="margin-top: 7px; margin-left: 50px">--%>
@@ -205,6 +206,7 @@
 <%--                            <label style="color: black" class="form-check-label" for="inlineRadio2">Nữ</label>--%>
 <%--                        </div>--%>
 <%--                    </div>--%>
+
                 </div>
 
                 <div class="form-row">

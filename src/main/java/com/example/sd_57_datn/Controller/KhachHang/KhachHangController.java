@@ -36,7 +36,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @Controller
+
 @RequestMapping("/khachhang")
+
 public class KhachHangController {
 
     @Autowired

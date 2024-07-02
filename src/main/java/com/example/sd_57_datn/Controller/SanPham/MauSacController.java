@@ -22,7 +22,9 @@ import java.util.List;
 import java.util.UUID;
 
 @Controller
+
 @RequestMapping("/MauSac")
+
 public class MauSacController {
 
     @Autowired
