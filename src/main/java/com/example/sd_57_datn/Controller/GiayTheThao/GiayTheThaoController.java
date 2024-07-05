@@ -39,7 +39,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @Controller
-//@RequestMapping(value = "GiayTheThao")
 public class GiayTheThaoController {
 
     @Autowired
