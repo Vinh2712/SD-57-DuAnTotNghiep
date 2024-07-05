@@ -37,7 +37,8 @@ import java.util.regex.Pattern;
 
 @Controller
 
-@RequestMapping("/khachhang")
+
+@RequestMapping("/KhachHang")
 
 public class KhachHangController {
 
