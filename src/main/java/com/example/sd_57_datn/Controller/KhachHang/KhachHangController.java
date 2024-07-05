@@ -36,7 +36,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @Controller
+<<<<<<< Updated upstream
 @RequestMapping("khachhang")
+=======
+
+@RequestMapping("/KhachHang")
+
+>>>>>>> Stashed changes
 public class KhachHangController {
 
     @Autowired
