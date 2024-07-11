@@ -1,14 +1,22 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib
-        prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> <%@ taglib prefix="f"
-                                                                         uri="http://java.sun.com/jsp/jstl/functions" %> <%@ taglib
-        uri="http://www.springframework.org/tags/form" prefix="sf"%>
+
+        prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="f"
+           uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib
+        uri="http://www.springframework.org/tags/form" prefix="sf" %>
+
+
+
 
 <html>
 <head>
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
         <title>Bán hàng tại quầy</title>
         <link
                 href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
@@ -31,20 +39,28 @@
                 width: 1000px;
                 border: 1px solid rgb(173, 172, 172);
             }
-            #listSP{
+
+
+            #listSP {
+
                 margin-top: 20px;
                 margin-bottom: 20px;
                 height: 420px;
                 overflow: auto;
 
             }
+
+
             ::-webkit-scrollbar {
                 width: 2px;
             }
+
             ::-webkit-scrollbar-thumb {
                 background: #888;
             }
-            #saleInvoice{
+
+            #saleInvoice {
+
                 width: 80%;
                 margin: 0 auto;
             }
@@ -61,7 +77,9 @@
                     class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none"
                     id="banner"
             >
-                BeeShoes
+
+                POLYSHOES
+
             </a>
 
             <div
@@ -93,7 +111,11 @@
                     <li><a class="dropdown-item" href="#">New project...</a></li>
                     <li><a class="dropdown-item" href="#">Settings</a></li>
                     <li><a class="dropdown-item" href="#">Profile</a></li>
-                    <li><hr class="dropdown-divider" /></li>
+
+                    <li>
+                        <hr class="dropdown-divider"/>
+                    </li>
+
                     <li><a class="dropdown-item" href="#">Sign out</a></li>
                 </ul>
             </div>
@@ -116,6 +138,9 @@
                     <th scope="col">Số lượng</th>
                     <th scope="col">Đơn giá</th>
                     <th scope="col">Tổng</th>
+
+
+
                 </tr>
                 </thead>
                 <tbody>
@@ -124,9 +149,11 @@
                     <c:forEach items="${list}" var="hdct" varStatus="status">
                         <tr>
                             <td>${status.index+1}</td>
-                            <td >${hdct.giayTheThaoChiTiet.giayTheThao.tenGiayTheThao}</td>
-                            <td >${hdct.giayTheThaoChiTiet.size.size}</td>
-                            <td >${hdct.giayTheThaoChiTiet.mauSac.tenMauSac}</td>
+
+                            <td>${hdct.giayTheThaoChiTiet.giayTheThao.tenGiayTheThao}</td>
+                            <td>${hdct.giayTheThaoChiTiet.size.size}</td>
+                            <td>${hdct.giayTheThaoChiTiet.mauSac.tenMauSac}</td>
+
                             <td>${hdct.soLuong}</td>
                             <td>${hdct.donGia}</td>
                             <td>${hdct.soLuong*hdct.donGia}</td>
@@ -148,7 +175,24 @@
                         <td colspan="6" style="text-align: left;">Tiền thanh toán:</td>
                         <td id="ttt">${tt}</td>
                     </tr>
+
+                    <tr>
+                        <td colspan="6" style="text-align: left;">Ngày thanh toán:</td>
+                        <td id="ntt"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" style="text-align: left;">Tên nhân viên:</td>
+                        <td id="namenv"></td>
+                    </tr>
                 </c:if>
+                <tr>
+                    <td colspan="6" style="text-align: left;">Tiền khách đưa:</td>
+                    <td id="tkd"></td>
+                </tr>
+                <tr>
+                    <td colspan="6" style="text-align: left;">Tiền thừa:</td>
+                    <td id="tt"></td>
+                </tr>
 
                 </tbody>
             </table>
@@ -158,11 +202,14 @@
             <div class="mb-3 row">
                 <label for="staticEmail" class="col-sm-2 col-form-label">Chương trình giảm giá </label>
                 <div class="col-sm-10">
-                    <select class="form-select form-select" aria-label=".form-select example" id="ctggSelect"  onchange="showAlert()">
+
+                    <select class="form-select form-select" aria-label=".form-select example" id="ctggSelect"
+                            onchange="showAlert()">
                         <option selected>Chương trình giảm giá</option>
                         <c:if test="${f:length(listCtgg)!=0}">
                             <c:forEach items="${listCtgg}" var="ctgg" varStatus="status">
-                                <option value="${ctgg.id}" >${ctgg.tenChuongTrinh}</option>
+                                <option value="${ctgg.id}">${ctgg.tenChuongTrinh}</option>
+
                             </c:forEach>
 
                         </c:if>
@@ -170,14 +217,17 @@
                 </div>
             </div>
 
-        </div >
+
+        </div>
         <form>
             <div style="margin: 0 auto; width: 80%;">
-                <button class="btn btn-success" style="width:100%;" id="pay" >Thanh toán</button>
+                <button class="btn btn-success" style="width:100%;" id="pay">Thanh toán</button>
             </div>
         </form>
         <div style="margin: 0 auto; width: 80%;">
-            <a href="${pageContext.request.contextPath}/BanHangTaiQuay" class="btn btn-success" style="width:100%;">Quay lại</a>
+            <a href="${pageContext.request.contextPath}/BanHangTaiQuay" class="btn btn-success" style="width:100%;">Quay
+                lại</a>
+
         </div>
     </div>
 
@@ -250,29 +300,35 @@
         var tttElement = document.getElementById('ttt');
 
         var ptgElement = document.getElementById('ptg');
-        if(selectedValue != 'Chương trình giảm giá'){
-            getCtggById(selectedValue, (data)=>{
+
+        if (selectedValue != 'Chương trình giảm giá') {
+            getCtggById(selectedValue, (data) => {
                 idCTGGCTHD = data.id;
                 var phanTramGiam = parseInt(data.phanTramGiam);
-                var salePrice = totals-totals*phanTramGiam/100;
-                tttElement.innerText=salePrice;
-                stgElement.innerText=parseInt(totals)-salePrice;
-                ptgElement.innerText="-"+phanTramGiam+"%";
+                var salePrice = totals - totals * phanTramGiam / 100;
+                tttElement.innerText = salePrice;
+                stgElement.innerText = parseInt(totals) - salePrice;
+                ptgElement.innerText = "-" + phanTramGiam + "%";
+
                 totalSale = salePrice;
                 totalElement.innerText = salePrice;
             });
         } else {
-            tttElement.innerText=0+"%";
-            tttElement.innerText=totals;
-            stgElement.innerText=0;
-            totalSale=totals;
+
+            tttElement.innerText = 0 + "%";
+            tttElement.innerText = totals;
+            stgElement.innerText = 0;
+            totalSale = totals;
+
             totalElement.innerText = totals;
         }
 
     }
 
     function getCtggById(id, callback) {
-        fetch("http://localhost:8080/api/ctgg/"+id)
+
+        fetch("http://localhost:8080/api/ctgg/" + id)
+
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -280,21 +336,28 @@
                 return response.json();
             })
             .then(callback)
-            .catch(error => {console.error("Error: ", error);})
+
+            .catch(error => {
+                console.error("Error: ", error);
+            })
     }
 
-    document.getElementById('pay').addEventListener('click', (event)=>{
+    document.getElementById('pay').addEventListener('click', (event) => {
         event.preventDefault();
-        pay(idHD)});
+        pay(idHD)
+    });
+
 
     function pay(id) {
         console.log('b');
         console.log(totalSale);
-        if((totalSale<totals)){
+
+        if ((totalSale < totals)) {
             console.log('a');
             createCtggctHD(id, idCTGGCTHD, totals);
         }
-        fetch("http://localhost:8080/api/hd/pay/"+id, {
+        fetch("http://localhost:8080/api/hd/pay/" + id, {
+
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -307,11 +370,12 @@
                 }
                 return response.text();
             })
-            .then((datas)=>{
+
+            .then((datas) => {
 
 
+                if (datas == "Thanh toán thành công") {
 
-                if(datas=="Thanh toán thành công"){
 
                     printInvoice();
                     // window.location.href = "${pageContext.request.contextPath}/BanHangTaiQuay";
@@ -329,9 +393,9 @@
 
                     });
 
-                }
 
-                else {
+                } else {
+
                     alert(datas);
                 }
 
@@ -344,7 +408,9 @@
 
     function createCtggctHD(id, idctgg, tt) {
 
-        fetch("http://localhost:8080/api/ctgg/create/"+id, {
+
+        fetch("http://localhost:8080/api/ctgg/create/" + id, {
+
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -357,7 +423,9 @@
                 }
                 return response.text();
             })
-            .then(data=>console.log('c'))
+
+            .then(data => console.log('c'))
+
             .catch(error => {
                 console.error('Error during POST request:', error);
             });
@@ -365,8 +433,10 @@
 
     function printInvoice() {
         var element = document.getElementById('listSP');
-        html2canvas(element).then(function(canvas){
-            var pdf = new jspdf.jsPDF('p','mm','a4');
+
+        html2canvas(element).then(function (canvas) {
+            var pdf = new jspdf.jsPDF('p', 'mm', 'a4');
+
             var imgData = canvas.toDataURL('image/png');
             pdf.addImage(imgData, 'PNG', 0, 0, 210, 297);
             pdf.save('test.pdf');

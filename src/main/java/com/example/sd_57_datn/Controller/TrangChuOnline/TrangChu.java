@@ -32,7 +32,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URI;
@@ -109,6 +108,7 @@ public class TrangChu {
 
     @Autowired
     private giaoDichViChiTietServiceImpl giaoDichViChiTietServiceImpl;
+  
     //PhantrangchoListSPGiaoDiennguoidung
 
     private void giaoDienTrangChuListGiayTheThao(Model model, Integer pageNum, Integer pageSize, GiayTheThaoRepository giayTheThaoRepository) {

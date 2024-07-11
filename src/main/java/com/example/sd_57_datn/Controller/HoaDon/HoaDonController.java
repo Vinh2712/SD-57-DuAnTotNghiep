@@ -99,6 +99,7 @@ public class HoaDonController {
 
     @Autowired
     private viTienServiceImpl viTienServiceImpl;
+  
     //Todo code view hóa đơn
     //hiện thông tin cho view hóa đơn
 
@@ -437,7 +438,6 @@ public class HoaDonController {
 
                                 }
 
-
                                 hoaDonRepository.save(hoaDon);
 
 
@@ -728,7 +728,6 @@ public class HoaDonController {
 
 
                                 }
-
                                 UUID idKhachHang = (UUID) session.getAttribute("idKhachHang");
                                 List<GioHang> gioHangList = gioHangRepository.findByKhachHang_Id(idKhachHang);
 
@@ -790,8 +789,6 @@ public class HoaDonController {
 
 
     //Todo code thanh toán bằng momo
-
-
     @GetMapping("paywithmomo")
     public String PayWithMomoGet(@ModelAttribute("message") String message,
                                  Model model,
@@ -1324,7 +1321,6 @@ public class HoaDonController {
         return "redirect:/KhachHang/HoaDon/HuyDonHang/" + session.getAttribute("maKH");
 
     }
-
 
     //Bên phía Admin
 
