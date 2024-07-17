@@ -157,7 +157,7 @@
                 <span>Thống kê</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="/Admin/xacNhanDonHangKhachHangAll">
                 <i class="fas fa-fw fa-chart-area"></i>
                 <span>Hóa đơn</span></a>
         </li>
