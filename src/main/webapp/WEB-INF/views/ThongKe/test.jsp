@@ -17,7 +17,6 @@
 <body>
 <%@ include file="../templates/Admin/Layouts/GiayTheThao/_HeaderGiayTheThao.jsp" %>
 
-
 <div class="container" style="margin-bottom: 50px">
     <div class="title">
         <div class="container mt-5">
@@ -119,7 +118,6 @@
                     </div>
                 </div>
 
-
                 <%--                <div class="col-xl-3 col-md-6 mb-4">--%>
                 <%--                    <div class="card border-left-success shadow h-100 py-2">--%>
                 <%--                        <div class="card-body">--%>
@@ -210,7 +208,6 @@
                     <canvas id="productChart" width="400" height="200"></canvas>
                 </div>
             </div>
-
             <div class="collapse" id="collapseExample1">
                 <br>
                 <h2 style="text-align: center; color: #0DDB9F;font-weight: bolder">Biểu đồ doanh
@@ -229,7 +226,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="collapse" id="collapseExample2">
                 <br>
                 <h2 style="text-align: center; color: #6a12c9;font-weight: bolder">Biểu đồ Top 5 sản
@@ -248,7 +244,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
@@ -273,7 +268,6 @@
 
 <%--Done--%>
 <script>
-
   var currentChart;
 
   var currentChart2;
@@ -949,10 +943,7 @@
       });
     }
   }
-
 </script>
-
-
 </body>
 </html>
 

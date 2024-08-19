@@ -72,7 +72,6 @@
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar"
         style="width: 1000px">
-
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/TrangChu/Admin/home">
             <div class="sidebar-brand-icon rotate-n-15">
@@ -119,7 +118,6 @@
                     <a class="collapse-item" href="/LotGiay/hien-thi">Lót giầy</a>
                 </div>
             </div>
-
         </li>
         <!-- Nav Item - User Collapse Menu -->
         <li class="nav-item">
