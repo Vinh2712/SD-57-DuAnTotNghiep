@@ -35,7 +35,7 @@
     <div class="container-login100">
         <div class="wrap-login100">
             <div class="login100-pic js-tilt" data-tilt>
-                <img src="/images/img-01.jpg" alt="IMG">
+                <img src="https://airproductionservice.com/wp-content/uploads/2021/05/Login.jpg" alt="IMG">
             </div>
 
             <frm:form modelAttribute="khachHang"
@@ -49,7 +49,7 @@
                         </div>
                     </div>
 					<span class="login100-form-title" style="color: black; font-size: 30px; font-weight: bold" >
-                        Đăng nhập
+                        Login
 					</span>
                 <div class="wrap-input100 validate-input" data-validate = "....@email.com">
                     <frm:input path="email" class="input100" type="text" name="email" placeholder="Email" style="font-weight: bold; font-size: 15px"/>
@@ -75,7 +75,7 @@
 
                 <div class="container-login100-form-btn">
                     <button type="submit" class="login100-form-btn">
-                        Login
+                        Đăng nhập
                     </button>
                 </div>
 

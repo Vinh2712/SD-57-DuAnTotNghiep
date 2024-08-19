@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-
+<%--list giay the thao--%>
 <style>
 
     .pagination .page-item.disabled a{
@@ -26,10 +26,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6 text-center">
                     <div class="section-title">
-                        <h1 style="">Giầy thể thao</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore
-                            magna aliqua.</p>
+                        <h1 style="">Danh sách sản phẩm</h1>
                     </div>
                 </div>
             </div>
@@ -113,7 +110,7 @@
 <%--                    Trường hợp sale vẫn đang đúng--%>
 
                     <div class="col-12" style="text-align: center;margin-top: 60px; margin-bottom: 80px">
-                        <h3 style="color: black" style="margin-bottom: 100px;margin-top: 100px;text-align: center">SALE</h3>
+                        <h1 style="color: black" style="margin-bottom: 100px;margin-top: 100px;text-align: center">CHƯƠNG TRÌNH GIẢM GIÁ</h1>
                     </div>
                     <c:forEach var="listSale"  items="${listSale}">
                         <c:if test="${listSale.trangThai == 1 && listSale.chuongTrinhGiamGiaGiayTheThao.trangThai ==1}">

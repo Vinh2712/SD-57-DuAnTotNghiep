@@ -62,10 +62,11 @@
         <a href="/TrangChu/listGiayTheThao">
             <div class="row">
                         <div class="col-4">
-                            <img src="../../../../../../resources/img/banner/banner-img.png" alt="" style="float:left;width: 80px; border: 1px solid white; border-radius: 1000px 1500px 700px;">
+<%--                            <img src="../../../../../../resources/img/banner/banner-img.png" alt="" style="float:left;width: 80px; border: 1px solid white; border-radius: 1000px 1500px 700px;">--%>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsBPK76cb-R-zqzBytSCVhLt8aPzdCbNjSgA&s" alt="" style="float:left;width: 90px; border: 1px solid white; border-radius: 1000px 1500px 700px;">
                         </div>
                         <div class="col-7">
-                            <h3 style="margin-top: 10px;box-shadow: #10707f">Bee Shoes</h3>
+                            <h3 style="margin-top: 10px">Poly Shoes</h3>
                         </div>
                 </div>
         </a>
@@ -95,7 +96,7 @@
                                 <li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/chatLieu/Contact">Contact</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="nav-item"><a href="#" class="cart"><span class="ti-bag"></span></a></li>
@@ -128,11 +129,6 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="/KhachHang/thongTinHoaDonAll/${maKH}" style="color: black;font-weight: bold">
                                             Đơn hàng
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/KhachHang/ViDienTu/ViewViDienTu/${maKH}" style="color: black;font-weight: bold">
-                                            Ví tiền
                                         </a>
                                     </li>
                                 </ul>

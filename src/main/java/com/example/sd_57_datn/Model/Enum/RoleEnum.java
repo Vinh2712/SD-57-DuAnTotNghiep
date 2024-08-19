@@ -1,4 +1,4 @@
-package com.example.sd_57_datn.Model.Enum;
+package com.example.sd_57_datn.model.Enum;
 
 public enum RoleEnum {
 

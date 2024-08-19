@@ -11,7 +11,7 @@
                     <div class="f-icon">
                         <img src="../../../../../../resources/img/features/f-icon1.png" alt="">
                     </div>
-                    <h6>Free Delivery</h6>
+                    <h6>Giao Hàng Tận Nơi</h6>
                     <p>Free Shipping on all order</p>
                 </div>
             </div>
@@ -21,7 +21,7 @@
                     <div class="f-icon">
                         <img src="../../../../../../resources/img/features/f-icon2.png" alt="">
                     </div>
-                    <h6>Return Policy</h6>
+                    <h6>Chính Sách Hoàn Trả</h6>
                     <p>Free Shipping on all order</p>
                 </div>
             </div>
@@ -31,7 +31,7 @@
                     <div class="f-icon">
                         <img src="../../../../../../resources/img/features/f-icon3.png" alt="">
                     </div>
-                    <h6>24/7 Support</h6>
+                    <h6>Tư Vấn Nhiệt Tình</h6>
                     <p>Free Shipping on all order</p>
                 </div>
             </div>
@@ -41,7 +41,7 @@
                     <div class="f-icon">
                         <img src="../../../../../../resources/img/features/f-icon4.png" alt="">
                     </div>
-                    <h6>Secure Payment</h6>
+                    <h6>Tối Ưu Thanh Toán</h6>
                     <p>Free Shipping on all order</p>
                 </div>
             </div>

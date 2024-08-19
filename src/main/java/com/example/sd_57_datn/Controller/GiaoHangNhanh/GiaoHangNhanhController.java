@@ -1,4 +1,4 @@
-package com.example.sd_57_datn.Controller.GiaoHangNhanh;
+package com.example.sd_57_datn.controller.GiaoHangNhanh;
 
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -89,6 +89,8 @@ public class GiaoHangNhanhController {
             HttpEntity<String> entity = new HttpEntity<>(headers);
 
             // Thực hiện yêu cầu HTTP với tiêu đề
+//            ResponseEntity<String> response = restTemplate.exchange(
+//                    "https://dev-online-gateway.ghn.vn/shiip/public-api/v2/shipping-order/fee?service_type_id=2&from_district_id=3303&to_district_id=" + transportationFeeDTO.getToDistrictId() + "&to_ward_code=" + transportationFeeDTO.getToWardCode() + "&height=" + TransportationFeeDTO.heightProduct * transportationFeeDTO.getQuantity() + "&length=" + TransportationFeeDTO.lengthProduct * transportationFeeDTO.getQuantity() + "&weight=" + TransportationFeeDTO.weightProduct * transportationFeeDTO.getQuantity() + "&width=" + TransportationFeeDTO.widthProduct * transportationFeeDTO.getQuantity() + "&insurance_value=" + transportationFeeDTO.getInsuranceValue(), HttpMethod.GET, entity, String.class);
             ResponseEntity<String> response = restTemplate.exchange(
                     "https://dev-online-gateway.ghn.vn/shiip/public-api/v2/shipping-order/fee?service_type_id=2&from_district_id=3303&to_district_id=" + transportationFeeDTO.getToDistrictId() + "&to_ward_code=" + transportationFeeDTO.getToWardCode() + "&height=" + TransportationFeeDTO.heightProduct + "&length=" + TransportationFeeDTO.lengthProduct + "&weight=" + TransportationFeeDTO.weightProduct * transportationFeeDTO.getQuantity() + "&width=" + TransportationFeeDTO.widthProduct * transportationFeeDTO.getQuantity() + "&insurance_value=" + transportationFeeDTO.getInsuranceValue(), HttpMethod.GET, entity, String.class);
             if (response.getStatusCode().is2xxSuccessful()) {

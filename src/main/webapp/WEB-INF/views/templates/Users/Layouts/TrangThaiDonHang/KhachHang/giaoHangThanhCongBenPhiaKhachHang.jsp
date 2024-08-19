@@ -78,15 +78,11 @@
                                 ${formattedDate}
                         </td>
                         <td style="color: black">
-                                    <fmt:formatNumber type="" value="${list.thanhTien}" pattern="#,##0.###" /> VNĐ
+                            <fmt:formatNumber type="" value="${list.thanhTien+list.phiShip}" pattern="#,##0.###" /> VNĐ
                         </td>
                         <td style="width: 300px;color: black">${list.ghiChu}</td>
                         <td>
-<%--                            <a href="/nguoiDung/HoaDon/${list.id}">--%>
-<%--                                <p style="font-size: 17px">--%>
-<%--                                    Mua lại--%>
-<%--                                </p>--%>
-<%--                            </a>--%>
+
                             <button style="" type="submit" formaction="/KhachHang/viewThongTinSanPhamMuaChoXacNhan" name="idHoaDonViewThongTinSanPhamChoXacNhan" value="${list.id}"
                                     class="btn btn-primary me-2" method="post">View
                             </button>

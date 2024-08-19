@@ -1,4 +1,4 @@
-package com.example.sd_57_datn.Model;
+package com.example.sd_57_datn.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -103,14 +103,17 @@ public class GiayTheThao {
     @OneToMany(mappedBy = "giayTheThao", fetch = FetchType.EAGER)
     List<Image> image;
 
-
+//    public String getAnhDau(List<Image> images) {
+//
+//        return images.get(0).getLink();
+//
+//    }
 
     public String getAnhDau() {
         if (image != null && !image.isEmpty()) {
             return image.get(0).getLink();
         }
-        // Thay bằng đường dẫn ảnh mặc định hoặc thông báo khác khi không có ảnh
-        return "Đường dẫn ảnh mặc định khi không có ảnh";
+        return "Đường dẫn ảnh mặc định khi không có ảnh"; // Thay bằng đường dẫn ảnh mặc định hoặc thông báo khác khi không có ảnh
     }
 
 

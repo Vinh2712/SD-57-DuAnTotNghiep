@@ -1,16 +1,15 @@
-package com.example.sd_57_datn.Service.GioHang;
+package com.example.sd_57_datn.service.GioHang;
 
-
-import com.example.sd_57_datn.Model.GioHangChiTiet;
-import com.example.sd_57_datn.Repository.GioHang.GioHangChiTietRepository;
-import com.example.sd_57_datn.Service.impl.GioHangChiTietImpl;
-import java.util.Optional;
-import java.util.UUID;
+import com.example.sd_57_datn.model.GioHangChiTiet;
+import com.example.sd_57_datn.repository.BanHang.GioHangChiTietRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+import java.util.UUID;
+
 @Service
-public class GioHangChiTietService implements GioHangChiTietImpl {
+public class GioHangChiTietService implements GioHangChiTietImpl{
 
     @Autowired
     private GioHangChiTietRepository gioHangChiTietRepository;

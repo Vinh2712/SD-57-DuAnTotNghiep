@@ -33,7 +33,7 @@
                 <marquee>
 
 
-                    <div style="font-size: 50px; font-weight: bold; font-family: 'Apple Color Emoji' ; color: #bac8f3;">NHÓM SD 57 : WEBSITE BÁN GIÀY THỂ THAO NAM POLY SHOES</div>
+<%--                    <div style="font-size: 50px; font-weight: bold; font-family: 'Apple Color Emoji' ; color: #bac8f3;">NHÓM SD 57 : WEBSITE BÁN GIÀY THỂ THAO NAM POLY SHOES</div>--%>
 
 
 

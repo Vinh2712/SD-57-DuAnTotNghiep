@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Cỡ giầy</title>
-    <%--    <link rel="icon" href="img/background_title.jpg" type="image/x-icon">--%>
+
     <style>
 
     </style>

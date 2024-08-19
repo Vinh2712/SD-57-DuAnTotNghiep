@@ -1,8 +1,9 @@
-package com.example.sd_57_datn.Service.impl;
+package com.example.sd_57_datn.service.impl;
 
-import com.example.sd_57_datn.Model.ChuongTrinhGiamGiaChiTietGiayTheThao;
-import com.example.sd_57_datn.Model.ChuongTrinhGiamGiaGiayTheThao;
-import com.example.sd_57_datn.Model.GiayTheThao;
+
+import com.example.sd_57_datn.model.ChuongTrinhGiamGiaChiTietGiayTheThao;
+import com.example.sd_57_datn.model.ChuongTrinhGiamGiaGiayTheThao;
+import com.example.sd_57_datn.model.GiayTheThao;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

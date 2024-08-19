@@ -210,13 +210,13 @@
         >
             <a href="http://localhost:8080/TrangChu/Admin/home"
 
-               class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none" id="banner">Trang Chủ</a>
+               class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none" id="banner" >Quay lại</a>
 
 
 
             <div class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
 
-                <input type="text" id="textCodeCheck" readonly="true">
+                <input type="text" id="textCodeCheck" readonly="true" >
 
                 <!-- Modal -->
                 <div
@@ -285,11 +285,15 @@
                     </div>
                 </div>
 
-                <input type="search" name="search-name" id="search-input">
+                <input type="search" name="search-name" id="search-input" placeholder="Tên giày...">
 
 
                 <button id="search-btn"><i class="bi bi-search"></i></button>
                 <button id="reset"><i class="bi bi-arrow-clockwise"></i></button>
+            </div>
+
+            <div class="hello" style="margin-left: 100px">
+                <a style="color: red">Xin chào: ${userLog.tenUser} ( ${userLog.role} )</a>
             </div>
 
 
@@ -302,7 +306,7 @@
                         aria-expanded="false"
                 >
                     <img
-                            src="https://github.com/mdo.png"
+                            src="/img/undraw_profile.svg"
                             alt="mdo"
                             width="32"
                             height="32"
@@ -556,7 +560,7 @@
                 </svg>
             </a>
             <span class="mb-3 mb-md-0 text-body-secondary"
-            >© 2023 Company, Inc</span
+            >Nhóm SD-57 Dự Án Tốt Nghiệp 2024</span
             >
         </div>
 
@@ -622,8 +626,10 @@
             if (inforCheckInput.value != '') {
                 getHDByID(idHD, (hd) => {
                     var checkCode = document.getElementById("checkCode");
+                    // Lấy mã nhân viên
                     var staff = document.getElementById('checkStaff');
                     var customer = document.getElementById("checkCustomer");
+                    // Lấy thời gian hiện tại
                     var timeCreate = document.getElementById("checkTimeCreate");
 
                     checkCode.innerText = inforCheckInput.value;

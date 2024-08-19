@@ -1,9 +1,8 @@
-package com.example.sd_57_datn.Service.impl;
+package com.example.sd_57_datn.service.impl;
 
 
-
-import com.example.sd_57_datn.Model.ChuongTrinhGiamGiaChiTietHoaDon;
-import com.example.sd_57_datn.Model.ChuongTrinhGiamGiaHoaDon;
+import com.example.sd_57_datn.model.ChuongTrinhGiamGiaChiTietHoaDon;
+import com.example.sd_57_datn.model.ChuongTrinhGiamGiaHoaDon;
 
 import java.util.List;
 

@@ -17,8 +17,6 @@
 </head>
 
 <style>
-    <%--        Dành cho tab--%>
-
     /*    Table */
     td, th {
         padding: 10px; /* Khoảng cách nội dung bên trong ô */
@@ -38,18 +36,7 @@
     <h3 style="text-align: center;">List màu sắc</h3>
     <br>
     <br>
-<%--    <input type="text" class="form-control bg-light border-0 small" placeholder="Tìm kiếm:" aria-label="Search"--%>
-<%--           aria-describedby="basic-addon2">--%>
 
-<%--    <form action="${pageContext.request.contextPath}/MauSac/search" method="GET">--%>
-<%--        &lt;%&ndash;        <label for="tenMauSac" style="margin-left: 30px">Tên màu sắc </label>&ndash;%&gt;--%>
-<%--        <input style="width: 400px" type="text" id="tenMauSac1" name="tenMauSac">--%>
-<%--        &lt;%&ndash;        <br>&ndash;%&gt;--%>
-<%--        <button class="btn btn-primary" type="submit">Tìm kiếm</button>--%>
-<%--        <h6 style="color: red; margin-top: 10px">${messageFindDone}</h6>--%>
-<%--        <h6 style="color: red; margin-top: 10px">${messageFindError}</h6>--%>
-<%--        <h6 style="color: red; margin-top: 10px">${messageFind}</h6>--%>
-<%--    </form>--%>
     <br>
     <br>
     <div class="row">
@@ -124,58 +111,7 @@
     </div>
     <div class="row">
         <div class="col-12" style="">
-            <%--            --%>
-            <%--            <ul class="pagination" style="margin-left: 400px">--%>
-            <%--                <c:choose>--%>
-            <%--                    <c:when test="${currentPage > 1}">--%>
-            <%--                        <li class="page-item">--%>
-            <%--                            <a href="/MauSac/list?pageNum=${currentPage - 1}&tab=active" class="page-link" style="border: 1px solid red;width: 100px">Previous</a>--%>
-            <%--                        </li>--%>
-            <%--                    </c:when>--%>
-            <%--                    <c:otherwise>--%>
-            <%--                        <!-- Ẩn nút "Previous" khi trang hiện tại là trang đầu tiên -->--%>
-            <%--                    </c:otherwise>--%>
-            <%--                </c:choose>--%>
 
-            <%--                <c:forEach var="pageNumber" items="${pageNumbers}">--%>
-            <%--                    <li class="page-item ${pageNumber == currentPage ? 'active' : ''}">--%>
-            <%--                        <a href="/MauSac/list?pageNum=${pageNumber}&tab=active" class="page-link">${pageNumber}</a>--%>
-            <%--                    </li>--%>
-            <%--                </c:forEach>--%>
-
-            <%--                <c:if test="${currentPage < totalPage}">--%>
-            <%--                    <li class="page-item">--%>
-            <%--                        <a href="/MauSac/list?pageNum=${currentPage + 1}&tab=active" class="page-link" style="border: 1px solid red; width: 50px">Next</a>--%>
-            <%--                    </li>--%>
-            <%--                </c:if>--%>
-            <%--            </ul>--%>
-
-            <%--    <ul class="pagination" style="margin-left: 500px">--%>
-            <%--        <c:choose>--%>
-            <%--            <c:when test="${currentPage > 1}">--%>
-            <%--                <li class="page-item">--%>
-            <%--                    <a href="${pageContext.request.contextPath}/MauSac/list?pageNum=${currentPage - 1}" class="page-link">Previous</a>--%>
-            <%--                </li>--%>
-            <%--            </c:when>--%>
-            <%--            <c:otherwise>--%>
-            <%--                <li class="page-item disabled">--%>
-            <%--                    <span class="page-link">Previous</span>--%>
-            <%--                </li>--%>
-            <%--            </c:otherwise>--%>
-            <%--        </c:choose>--%>
-
-            <%--        <c:forEach var="pageNumber" items="${pageNumbers}">--%>
-            <%--            <li class="page-item ${pageNumber == currentPage ? 'active' : ''}">--%>
-            <%--                <a href="${pageContext.request.contextPath}/MauSac/list?pageNum=${pageNumber}" class="page-link">${pageNumber}</a>--%>
-            <%--            </li>--%>
-            <%--        </c:forEach>--%>
-
-            <%--        <c:if test="${currentPage < totalPage}">--%>
-            <%--            <li class="page-item">--%>
-            <%--                <a href="${pageContext.request.contextPath}/MauSac/list?pageNum=${currentPage + 1}" class="page-link">Next</a>--%>
-            <%--            </li>--%>
-            <%--        </c:if>--%>
-            <%--    </ul>--%>
 
 
             <ul class="pagination" style="margin-left: 400px">

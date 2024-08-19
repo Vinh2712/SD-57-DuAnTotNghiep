@@ -1,11 +1,11 @@
-package com.example.sd_57_datn.Controller.BanHangTaiQuay;
+package com.example.sd_57_datn.controller.BanHangTaiQuay;
 
-import com.example.sd_57_datn.Model.HoaDonChiTiet;
-import com.example.sd_57_datn.Service.GiamGia.ChuongTrinhGiamGiaHoaDonService;
-import com.example.sd_57_datn.Service.GiayTheThao.GiayTheThaoChiTietService;
-import com.example.sd_57_datn.Service.HoaDon.HoaDonChiTietServie;
-import com.example.sd_57_datn.Service.HoaDon.HoaDonService;
-import com.example.sd_57_datn.Service.KhachHang.KhachHangService;
+import com.example.sd_57_datn.model.HoaDonChiTiet;
+import com.example.sd_57_datn.service.ChuongTrinhGiamGiaHoaDonService;
+import com.example.sd_57_datn.service.GiayTheThao.GiayTheThaoChiTietService;
+import com.example.sd_57_datn.service.HoaDon.HoaDonChiTietServie;
+import com.example.sd_57_datn.service.HoaDon.HoaDonService;
+import com.example.sd_57_datn.service.KhachHangService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -41,6 +41,7 @@ public class BanHangTaiQuayController {
 
     @GetMapping()
     public String getView(Model model) {
+
 
         model.addAttribute("list", gttctService.getAll());
         model.addAttribute("listHDC", hoaDonService.hoaDonCho());

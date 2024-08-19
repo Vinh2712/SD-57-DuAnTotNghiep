@@ -1,8 +1,8 @@
-package com.example.sd_57_datn.Service.GiayTheThao;
+package com.example.sd_57_datn.service.GiayTheThao;
 
-import com.example.sd_57_datn.Model.GiayTheThao;
-import com.example.sd_57_datn.Repository.GiayTheThao.GiayTheThaoRepository;
-import com.example.sd_57_datn.Service.impl.GiayTheThaoImpl;
+
+import com.example.sd_57_datn.model.GiayTheThao;
+import com.example.sd_57_datn.repository.SanPham.GiayTheThao.GiayTheThaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-public class GiayTheThaoService implements GiayTheThaoImpl {
+public class GiayTheThaoService implements GiayTheThaoImpl{
 
     @Autowired
     private GiayTheThaoRepository giayTheThaoRepository;

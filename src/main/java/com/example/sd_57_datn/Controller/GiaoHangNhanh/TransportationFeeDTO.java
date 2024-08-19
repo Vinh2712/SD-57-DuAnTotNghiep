@@ -1,4 +1,4 @@
-package com.example.sd_57_datn.Controller.GiaoHangNhanh;
+package com.example.sd_57_datn.controller.GiaoHangNhanh;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

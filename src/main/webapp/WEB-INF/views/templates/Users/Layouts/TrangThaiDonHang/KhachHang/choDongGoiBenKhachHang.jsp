@@ -79,7 +79,7 @@
 
                         </td>
                         <td style="color: black">
-                                    <fmt:formatNumber type="" value="${list.thanhTien}" pattern="#,##0.###" /> VNĐ
+                            <fmt:formatNumber type="" value="${list.thanhTien+list.phiShip}" pattern="#,##0.###" /> VNĐ
                         </td>
                         <td style="width: 300px;color: black">${list.ghiChu}</td>
                         <td style="width: 150px;color: black">

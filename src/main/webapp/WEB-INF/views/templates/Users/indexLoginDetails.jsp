@@ -6,7 +6,7 @@
         "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>Bes Shoes</title>
+    <title>Poly Shoes</title>
 </head>
 <body>
 

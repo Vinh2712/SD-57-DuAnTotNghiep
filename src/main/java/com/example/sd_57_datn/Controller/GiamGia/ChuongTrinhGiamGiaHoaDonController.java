@@ -1,9 +1,11 @@
-package com.example.sd_57_datn.Controller.GiamGia;
+package com.example.sd_57_datn.controller.GiamGia;
 
-import com.example.sd_57_datn.Model.ChuongTrinhGiamGiaChiTietHoaDon;
-import com.example.sd_57_datn.Model.ChuongTrinhGiamGiaHoaDon;
-import com.example.sd_57_datn.Service.GiamGia.ChuongTrinhGiamGiaChiTietHoaDonService;
-import com.example.sd_57_datn.Service.GiamGia.ChuongTrinhGiamGiaHoaDonService;
+
+
+import com.example.sd_57_datn.model.ChuongTrinhGiamGiaChiTietHoaDon;
+import com.example.sd_57_datn.model.ChuongTrinhGiamGiaHoaDon;
+import com.example.sd_57_datn.service.ChuongTrinhGiamGiaChiTietHoaDonService;
+import com.example.sd_57_datn.service.ChuongTrinhGiamGiaHoaDonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -65,6 +67,7 @@ public class ChuongTrinhGiamGiaHoaDonController {
 
         Pageable pageable = PageRequest.of(page - 1, 10);
 
+        // model.addAttribute("read", "hoaDon/search?name="+name+"&");
         if (ngayBatDau.length() <= 0 && ngayKetThuc.length() <= 0) {
             model.addAttribute("list", this.serviceHD.filterByTrangThai(pageable, trangThai));
             model.addAttribute("read", "hoaDon/filter?trangThai=" + trangThai + "&"+ "ngayBatDau="  + "&"

@@ -1,7 +1,10 @@
-package com.example.sd_57_datn.Repository.HoaDon;
+package com.example.sd_57_datn.repository.HoaDon;
 
 
-import com.example.sd_57_datn.Model.HoaDon;
+import com.example.sd_57_datn.model.HoaDon;
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -28,14 +31,39 @@ public interface HoaDonRepository extends JpaRepository<HoaDon, UUID> {
     @Query("SELECT SUM(hd.thanhTien) FROM HoaDon hd WHERE hd.trangThai = 4")
     BigDecimal tinhTongDoanhThu();
 
-    @Query("SELECT COUNT(hd.maHoaDon) FROM HoaDon hd WHERE hd.trangThai = 4")
+    @Query(value = "SELECT SUM(hd.thanhTien) FROM HoaDon hd WHERE hd.trangThai = 4 " +
+        "AND (:startDate IS NULL OR hd.ngayTao >= :startDate) " +
+        "AND (:endDate IS NULL OR hd.ngayTao <= :endDate)")
+    BigDecimal tinhTongDoanhThuByDate(@Param("startDate") LocalDateTime startDate, @Param("endDate") LocalDateTime endDate);
+
+    @Query("SELECT COUNT(hd.maHoaDon) FROM HoaDon hd WHERE hd.trangThai = 4 ")
     Integer tongDonHang();
+
+    @Query(value = "SELECT COUNT(hd.maHoaDon) FROM HoaDon hd WHERE hd.trangThai = 4 " +
+        "AND (:startDate IS NULL OR hd.ngayTao >= :startDate) " +
+        "AND (:endDate IS NULL OR hd.ngayTao <= :endDate)")
+    Integer tongDonHangByDate(@Param("startDate") LocalDateTime startDate, @Param("endDate") LocalDateTime endDate);
 
     @Query("SELECT COUNT(hd.maHoaDon) FROM HoaDon hd WHERE hd.trangThai = 4 AND hd.hinhThuc = 1")
     Integer tongHoaDonTaiQuay();
 
+    @Query(value = "SELECT COUNT(hd.maHoaDon) FROM HoaDon hd WHERE hd.trangThai = 4 AND hd.hinhThuc = 1 " +
+        "AND (:startDate IS NULL OR hd.ngayTao >= :startDate) " +
+        "AND (:endDate IS NULL OR hd.ngayTao <= :endDate)")
+    Integer tongHoaDonTaiQuayByDate(@Param("startDate") LocalDateTime startDate, @Param("endDate") LocalDateTime endDate);
+
+    @Query(value = "SELECT hd FROM HoaDon hd " +
+        "WHERE (:startDate IS NULL OR hd.ngayTao >= :startDate) " +
+        "AND (:endDate IS NULL OR hd.ngayTao <= :endDate) ORDER BY hd.ngayTao ASC")
+    List<HoaDon> hoaDonByDate(@Param("startDate") LocalDateTime startDate, @Param("endDate") LocalDateTime endDate);
+
     @Query("SELECT COUNT(hd.maHoaDon) FROM HoaDon hd WHERE hd.trangThai = 4 AND hd.hinhThuc = 0")
     Integer tongHoaDonOnline();
+
+    @Query(value = "SELECT COUNT(hd.maHoaDon) FROM HoaDon hd WHERE hd.trangThai = 4 AND hd.hinhThuc = 0 " +
+        "AND (:startDate IS NULL OR hd.ngayTao >= :startDate) " +
+        "AND (:endDate IS NULL OR hd.ngayTao <= :endDate)")
+    Integer tongHoaDonOnlineByDate(@Param("startDate") LocalDateTime startDate, @Param("endDate") LocalDateTime endDate);
 
     //Sản phẩm bán chạy nhất
     @Query("SELECT h, gttct FROM HoaDon h " +

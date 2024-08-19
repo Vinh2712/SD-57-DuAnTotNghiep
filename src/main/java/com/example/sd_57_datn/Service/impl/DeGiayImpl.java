@@ -1,10 +1,11 @@
-package com.example.sd_57_datn.Service.impl;
+package com.example.sd_57_datn.service.impl;
 
 
-import com.example.sd_57_datn.Model.DeGiay;
-import java.util.UUID;
+import com.example.sd_57_datn.model.DeGiay;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+
+import java.util.UUID;
 
 public interface DeGiayImpl {
 

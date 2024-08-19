@@ -1,7 +1,9 @@
-package com.example.sd_57_datn.Service.ViTien;
+package com.example.sd_57_datn.service.ViTien;
 
-import com.example.sd_57_datn.Model.ViTien;
-import com.example.sd_57_datn.Repository.ViTien.viTienRepository;
+
+import com.example.sd_57_datn.repository.ViTien.viTienRepository;
+import com.example.sd_57_datn.service.ViTien.Impl.viTienServiceImpl;
+import com.example.sd_57_datn.model.ViTien;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +14,7 @@ import java.util.UUID;
 public class viTienService implements viTienServiceImpl{
 
     @Autowired
-    private viTienRepository viTienRepository;
+    viTienRepository viTienRepository;
 
     @Override
     public void add(ViTien viShop) {

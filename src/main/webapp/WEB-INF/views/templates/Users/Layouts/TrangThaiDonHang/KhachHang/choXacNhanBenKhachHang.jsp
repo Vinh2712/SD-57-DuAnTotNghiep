@@ -9,7 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chờ xác nhận đơn hàng</title>
+    <title>Chờ xác nhận đơn hàng Nhật</title>
     <style>
 
 
@@ -63,7 +63,9 @@
                     <td scope="col" style="color: black;font-size: 15px;font-weight: bold">Mã hóa đơn</td>
                     <td scope="col" style="color: black;font-size: 15px;font-weight: bold">Ngày thanh toán</td>
                     <td scope="col"  style="color: black;font-size: 15px;font-weight: bold">Thành tiền</td>
+                    <td scope="col"  style="color: black;font-size: 15px;font-weight: bold">Hình thức</td>
                     <td scope="col"  style="color: black;font-size: 15px;font-weight: bold">Thông tin nhận hàng</td>
+                    <td scope="col"  style="color: black;font-size: 15px;font-weight: bold">Ghi chú</td>
                     <td scope="col"  style="color: black;font-size: 15px;text-align: center;font-weight: bold">Actions</td>
                 </tr>
                 <c:forEach items="${page.content}" var="list">
@@ -80,15 +82,43 @@
 
                         </td>
                         <td>
-                            <fmt:formatNumber type="" value="${list.thanhTien}" pattern="#,##0.###" /> VNĐ
+                            <fmt:formatNumber type="" value="${list.thanhTien+list.phiShip}" pattern="#,##0.###" /> VNĐ
+                        </td>
+                        <td >
+                            <c:choose>
+                                <c:when test="${list.hinhThucThanhToan == 2}">
+                                    Đã thanh toán
+                                </c:when>
+                                <c:when test="${list.hinhThucThanhToan == 3}">
+                                    Chưa thanh toán
+                                </c:when>
+                                <c:otherwise>
+                                    Không xác định
+                                </c:otherwise>
+                            </c:choose>
                         </td>
                         <td style="width: 300px">${list.ghiChu}</td>
+<%--                        <td>--%>
+<%--                            <form action="/KhachHang/HoaDon/HuyDonHang" method="post" onsubmit="return checkHuyDonHang(${list.hinhThucThanhToan})">--%>
+<%--                                <input type="hidden" name="huyDonHang" value="${list.id}" />--%>
+<%--                                <button type="submit" class="btn btn-primary me-2">Hủy</button>--%>
+<%--                            </form>--%>
+<%--                            <button type="submit" formaction="/KhachHang/viewThongTinSanPhamMuaChoXacNhan" name="idHoaDonViewThongTinSanPhamChoXacNhan" value="${list.id}"--%>
+<%--                                    class="btn btn-primary me-2">Chi tiết--%>
+<%--                            </button>--%>
+<%--                        </td>--%>
+                        <td style="width: 300px">
+                            <c:if test="${list.hinhThucThanhToan == 2}">
+                                Hủy đơn bằng cách gọi cửa hàng: 0968433742 !
+                            </c:if>
+                        </td>
                         <td>
                             <button type="submit" formaction="/KhachHang/HoaDon/HuyDonHang" name="huyDonHang" value="${list.id}"
-                                    class="btn btn-primary me-2" method="post">Hủy
+                                    class="btn btn-primary me-2"
+                                    <c:if test="${list.hinhThucThanhToan == 2}">disabled</c:if>>Hủy
                             </button>
                             <button style="" type="submit" formaction="/KhachHang/viewThongTinSanPhamMuaChoXacNhan" name="idHoaDonViewThongTinSanPhamChoXacNhan" value="${list.id}"
-                                    class="btn btn-primary me-2" method="post">View
+                                    class="btn btn-primary me-2" method="post">Chi tiết
                             </button>
                         </td>
                     </tr>
@@ -120,5 +150,16 @@
     </div>
 
 </div>
+
+<%--<script type="text/javascript">--%>
+<%--    function checkHuyDonHang(hinhThucThanhToan) {--%>
+<%--        if (hinhThucThanhToan == 2) {--%>
+<%--            alert('Vui lòng gọi 0968433741 để hủy đơn hàng !');--%>
+
+<%--            return false; // Ngăn không cho gửi form--%>
+<%--        }--%>
+<%--        return true; // Cho phép gửi form nếu điều kiện không đúng--%>
+<%--    }--%>
+<%--</script>--%>
 </body>
 </html>
