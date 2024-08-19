@@ -146,10 +146,7 @@
                             <sf:radiobutton class="form-check-input" path="trangThai" id="inlineRadio2" value="0"></sf:radiobutton>
                             <label class="form-check-label" for="inlineRadio2">Chưa kích hoạt</label>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <sf:radiobutton class="form-check-input" path="trangThai" id="inlineRadio3" value="-1"></sf:radiobutton>
-                            <label class="form-check-label" for="inlineRadio3">Hết hạn</label>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -159,17 +156,7 @@
 
         </sf:form>
     </div>
-<%--    <c:if test="${button=='Thêm'}">--%>
-<%--        <hr>    --%>
-<%--        <div>--%>
-<%--            <h4>Thêm bằng file excel</h4>--%>
-<%--            <form  action="importExcel" method="post" enctype="multipart/form-data">--%>
-<%--                <input type="file" name="file" accept=".xlsx"  class="form-control" required>--%>
 
-<%--                <button class="btn btn-primary" style="margin-top: 10px">Import</button>--%>
-<%--            </form>--%>
-<%--        </div>--%>
-<%--     </c:if>   --%>
 </div>
 
 <%@ include file="../../templates/Admin/Layouts/GiayTheThao/_FooterGiayTheThao.jsp" %>

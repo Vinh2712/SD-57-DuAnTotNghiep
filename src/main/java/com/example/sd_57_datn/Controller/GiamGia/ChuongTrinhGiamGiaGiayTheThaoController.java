@@ -1,13 +1,13 @@
-package com.example.sd_57_datn.Controller.GiamGia;
+package com.example.sd_57_datn.controller.GiamGia;
 
 
-import com.example.sd_57_datn.Model.ChuongTrinhGiamGiaChiTietGiayTheThao;
-import com.example.sd_57_datn.Model.ChuongTrinhGiamGiaGiayTheThao;
-import com.example.sd_57_datn.Model.GiayTheThao;
-import com.example.sd_57_datn.Service.GiamGia.ChuongTrinhGiamGiaChiTietGiayTheThaoService;
-import com.example.sd_57_datn.Service.GiamGia.ChuongTrinhGiamGiaGiayTheThaoService;
-import com.example.sd_57_datn.Service.GiayTheThao.GiayTheThaoChiTietService;
-import com.example.sd_57_datn.Service.GiayTheThao.GiayTheThaoService;
+import com.example.sd_57_datn.model.ChuongTrinhGiamGiaChiTietGiayTheThao;
+import com.example.sd_57_datn.model.ChuongTrinhGiamGiaGiayTheThao;
+import com.example.sd_57_datn.model.GiayTheThao;
+import com.example.sd_57_datn.service.ChuongTrinhGiamGiaChiTietGiayTheThaoService;
+import com.example.sd_57_datn.service.ChuongTrinhGiamGiaGiayTheThaoService;
+import com.example.sd_57_datn.service.GiayTheThao.GiayTheThaoChiTietService;
+import com.example.sd_57_datn.service.GiayTheThao.GiayTheThaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -161,6 +161,7 @@ public class ChuongTrinhGiamGiaGiayTheThaoController {
     @PostMapping("apply")
     public String applyProduct(@RequestParam("id") UUID id, @RequestBody List<String> list, Model model) {
         ChuongTrinhGiamGiaGiayTheThao ctggGiayTheThao = this.serviceSP.getOne(id);
+        // List<GiayTheThao> listProducts = new ArrayList();
         System.out.println("Phần trăm giảm: " + ctggGiayTheThao.getPhanTramGiam());
 
         for (String str : list) {
@@ -182,6 +183,13 @@ public class ChuongTrinhGiamGiaGiayTheThaoController {
             ctggCTProduct.setTrangThai(1);
             this.serviceCTSP.add(ctggCTProduct);
 
+            // List<GiayTheThaoChiTiet> listGttct = gttctService.getAllByGiayTheThao(product);
+            // for (GiayTheThaoChiTiet gttct : listGttct) {
+            //     GiayTheThaoChiTiet gttcts = gttct;
+
+            //     gttcts.setSoTienDaGiam(soTienDaGiam);
+            // }
+            // gttctService.saveAll(listGttct);
         }
 
 

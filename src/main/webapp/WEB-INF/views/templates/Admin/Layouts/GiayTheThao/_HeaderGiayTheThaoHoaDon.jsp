@@ -70,47 +70,94 @@
 <!-- Page Wrapper -->
 <div id="wrapper">
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar" style="width: 1000px">
-
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar"
+        style="width: 1000px">
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/TrangChu/Admin/home">
             <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fas fa-laugh-wink"></i>
+                <%--                icon mat --%>
+                <%--                <i class="fas fa-laugh-wink"></i>--%>
             </div>
             <div class="sidebar-brand-text mx-3">
-                    BEE SHOES
+                POLY SHOES
             </div>
         </a>
         <!-- Divider -->
         <hr class="sidebar-divider">
-        <!-- How to code  Nav Item - Pages Collapse Menu -->
+        <%-- Menu dọc      --%>
         <li class="nav-item">
-            <a class="nav-link collapsed" href="/GiayTheThao/listGiayTheThao" data-toggle="collapse" data-target="#collapsePages"
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                aria-expanded="true" aria-controls="collapsePages">
                 <i class="fas fa-fw fa-folder"></i>
-                <span>Giầy thể thao</span>
+                <span>Thuộc tính sản phẩm</span>
 
             </a>
+            <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
 
+                    <%--                    <h6 class="collapse-header" style="color: black; font-size: 13px;">Pages</h6>--%>
+                    <a class="collapse-item" href="/CoGiay/hien-thi">Cổ giầy</a>
+
+
+                    <a class="collapse-item" href="/kieuBuoc/hien-thi">Kiểu buộc</a>
+                    <a class="collapse-item" href="/chatLieu/hien-thi">Chất liệu</a>
+                    <a class="collapse-item" href="/congDung/hien-thi">Công dụng</a>
+                    <a class="collapse-item" href="/dayGiay/hien-thi">Dây giầy</a>
+                    <a class="collapse-item" href="/deGiay">Đế giày</a>
+                    <a class="collapse-item" href="/dinhTanGiay/hien-thi">Đinh tán giầy</a>
+
+                    <a class="collapse-item" href="/MauSac/hien-thi">Màu sắc</a>
+                    <a class="collapse-item" href="/Size/hien-thi">Size</a>
+                    <a class="collapse-item" href="/thuongHieu/hien-thi">Thương hiệu</a>
+
+
+                    <a class="collapse-item" href="/trongLuong/hien-thi">Trọng lượng</a>
+                    <a class="collapse-item" href="/form/hien-thi">Form</a>
+                    <a class="collapse-item" href="/chatLieu/hien-thi">Chất liệu</a>
+                    <a class="collapse-item" href="/HuongDanBaoQuan/hien-thi">Hướng dẫn bảo quản</a>
+                    <a class="collapse-item" href="/LotGiay/hien-thi">Lót giầy</a>
+                </div>
+            </div>
         </li>
         <!-- Nav Item - User Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="/user/hien-thi" data-toggle="collapse" data-target="#collapseUtilities"
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                aria-expanded="true" aria-controls="collapseUtilities">
                 <i class="fas fa-fw fa-wrench"></i>
-                <span>Nhân viên</span>
+                <span>Quản lý chung</span>
             </a>
+            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                 data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="/user/hien-thi">Nhân viên</a>
+                    <a class="collapse-item" href="/khachhang">Khách hàng</a>
+                </div>
+            </div>
         </li>
-
+        <li class="nav-item">
+            <a class="nav-link" href="/GiayTheThao/listGiayTheThao">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Quản lý sản phẩm</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/chuongTrinhGiamGia/sanPham">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Khuyến mại</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/BanHangTaiQuay">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Bán hàng tại quầy</span></a>
+        </li>
         <li class="nav-item">
             <a class="nav-link" href="/thongKeChuanData">
                 <i class="fas fa-fw fa-chart-area"></i>
                 <span>Thống kê</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/BanHangTaiQuay">
-                <i class="fas fa-fw fa-table"></i>
-                <span>Bán háng tại quầy</span></a>
+            <a class="nav-link" href="/Admin/xacNhanDonHangKhachHangAll">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Hóa đơn</span></a>
         </li>
     </ul>
     <!-- The end code nav -->

@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <%--    <link rel="icon" href="img/background_title.jpg" type="image/x-icon">--%>
-    <title>BEE SHOES</title>
+    <title>POLY SHOES</title>
     <!-- Custom fonts for this template-->
     <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
@@ -76,7 +76,7 @@
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
-            <div class="sidebar-brand-text mx-3">BEE SHOES</div>
+            <div class="sidebar-brand-text mx-3">POLY SHOES</div>
         </a>
         <!-- Divider -->
         <hr class="sidebar-divider">

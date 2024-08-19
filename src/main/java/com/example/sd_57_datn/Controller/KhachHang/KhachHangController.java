@@ -1,10 +1,14 @@
-package com.example.sd_57_datn.Controller.KhachHang;
+package com.example.sd_57_datn.controller.KhachHang;
 
 
-import com.example.sd_57_datn.Model.KhachHang;
-import com.example.sd_57_datn.Repository.KhachHang.KhachHangRepository;
-import com.example.sd_57_datn.Service.KhachHang.KhachHangImpl;
-import com.example.sd_57_datn.Service.KhachHang.KhachHangService;
+import com.example.sd_57_datn.repository.ViTien.viTienRepository;
+import com.example.sd_57_datn.model.GioHang;
+import com.example.sd_57_datn.model.KhachHang;
+import com.example.sd_57_datn.model.ViTien;
+import com.example.sd_57_datn.repository.BanHang.GioHangRepository;
+import com.example.sd_57_datn.repository.KhachHangRepository;
+import com.example.sd_57_datn.service.KhachHangImpl;
+import com.example.sd_57_datn.service.KhachHangService;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -22,13 +26,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.view.RedirectView;
 
 import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.UUID;
@@ -36,10 +38,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @Controller
-
-
-@RequestMapping("/KhachHang")
-
 public class KhachHangController {
 
     @Autowired
@@ -54,12 +52,14 @@ public class KhachHangController {
     @Autowired
     private KhachHangService khachHangService;
 
-//    @Autowired
-//    private GioHangRepository gioHangRepository;
+    @Autowired
+    private GioHangRepository gioHangRepository;
 
     @Autowired
     private KhachHangImpl khachHangImpl;
 
+    @Autowired
+    private viTienRepository viTienRepository;
 
     @Data
     public static class SearchKH{
@@ -72,7 +72,8 @@ public class KhachHangController {
         String soDienThoai;
         String diaChi;
     }
-    @GetMapping("")
+
+    @RequestMapping(value = "/KhachHang/list")
     public String viewKhachHang(Model model,
                                 @RequestParam(name = "pageNumber", required = false, defaultValue = "1") Integer pageNumber,
                                 @RequestParam(name = "pageSize", required = false, defaultValue = "5") Integer pageSize,
@@ -92,16 +93,23 @@ public class KhachHangController {
 
     //Todo code check trùng email của khách hàng
     private  boolean checkTrungEmailKhachHang(String emailKhachHang){
+
             for(KhachHang khachHang : khachHangRepository.findAll()){
+
                  if(khachHang.getEmail().equalsIgnoreCase(emailKhachHang)){
+
                      return true;
+
                  }
+
             }
+
             return false;
+
     }
 
     //Todo code log view Đăng ký tài khoản thành công
-    @GetMapping("/DangKyTaiKhoanThanhCong")
+    @GetMapping("khachHang/DangKyTaiKhoanThanhCong")
     public String showViewDangKyTaiKhoanThanhCong(){
 
         System.out.println("Đăng ký tài khoản thành công !");
@@ -109,8 +117,8 @@ public class KhachHangController {
 
     }
 
-//    //Todo code đăng ký tài khoản khách hàng
-    @GetMapping("/view-createDanngKy")
+    //Todo code đăng ký tài khoản khách hàng
+    @RequestMapping(value = "/KhachHang/view-createDanngKy")
     public String create(Model model){
 
         model.addAttribute("khachHang", new KhachHang());
@@ -118,7 +126,7 @@ public class KhachHangController {
 
     }
 
-    @PostMapping(value = "/create")
+    @RequestMapping(value = "/KhachHang/create")
     public String create(@Valid
                          @ModelAttribute("khachHang") KhachHang khachHang,
                          @RequestParam("quocGia1") String quocGia1,
@@ -331,13 +339,22 @@ public class KhachHangController {
 
         khachHangRepository.save(khachHang);
 
-//        Tạo mới giỏ hàng cho khách hàng luôn
-//        GioHang gioHang = new GioHang();
-//
-//        gioHang.setKhachHang(khachHang);
-//        session.setAttribute("gioHang",gioHang);
-//        gioHangRepository.save(gioHang);
+        //Tạo mới giỏ hàng cho khách hàng luôn
+        GioHang gioHang = new GioHang();
 
+        gioHang.setKhachHang(khachHang);
+        session.setAttribute("gioHang",gioHang);
+        gioHangRepository.save(gioHang);
+
+        ViTien viTien = new ViTien();
+
+        viTien.setMaViTien("MaViTien" + localTime.getHour() + localTime.getMinute() + localTime.getSecond());
+        viTien.setKhachHang(khachHang);
+        int thanhTienBanDau = 0;
+        viTien.setThanhTien(BigDecimal.valueOf(thanhTienBanDau));
+        viTien.setTrangThai(1);
+
+        viTienRepository.save(viTien);
 
         attributes.addFlashAttribute("message", "Đăng kí tài khoản thành công");
 
@@ -346,13 +363,13 @@ public class KhachHangController {
     }
 
     //Todo code edit khách hàng
-    @GetMapping("/edit/{id}")
+    @RequestMapping("/KhachHang/edit/{id}")
     public String edit(Model model, @PathVariable UUID id){
         KhachHang khachHang = khachHangRepository.findById(id).orElse(null);
 
         if (khachHang == null){
             model.addAttribute("messageFind", "Không tìm thấy khách hàng có id: "+id);
-            return "/KhachHang/index";
+            return "/KhachHang/list";
         }
 
         model.addAttribute("khachHang", khachHangRepository.findById(id));
@@ -361,17 +378,15 @@ public class KhachHangController {
     }
 
     //Todo code xóa khách hàng
-    @GetMapping("/delete/{id}")
-    public String delete(@PathVariable("id") UUID id){
-//        GioHang gioHang = gioHangRepository.findByKhachHangId(id);
-//        gioHangRepository.delete(gioHang);
-        khachHangRepository.deleteById(id);
-        return "redirect:/KhachHang/index";
+    @RequestMapping("/KhachHang/delete/{id}")
+    public String delete(@PathVariable("id") KhachHang khachHang){
+        khachHangRepository.delete(khachHang);
+        return "redirect:/KhachHang/list";
     }
 
 
     //Todo code update login
-    @GetMapping("/loginViewDangNhap")
+    @GetMapping("KhachHang/loginViewDangNhap")
     public String loginKhachHang(Model model){
 
         model.addAttribute("khachHang", new KhachHang());
@@ -380,16 +395,62 @@ public class KhachHangController {
     }
 
     //Todo code log login
-    @GetMapping("/showSweetAlertLoginSuccess")
+    @GetMapping("/KhachHang/showSweetAlertLoginSuccess")
     public String showSweetAlertLogLogin() {
 
         return "/templates/Users/Layouts/Log/DangNhapLog";
 
     }
 
+//    //Todo code check login
+//    @PostMapping("KhachHang/loginViewDangNhap")
+//    public String checkLoginKhachHang(Model model,
+//                                      @ModelAttribute("khachHang")KhachHang khachHang,
+//                                      @Valid
+//                                      BindingResult result,
+//                                      HttpSession session) {
+//
+//        if (result.hasErrors()) {
+//
+//            System.out.println("Đăng nhập thất bại !");
+//            model.addAttribute("messErLogin", "Đăng nhập thất bại");
+//            return "/templates/Users/Layouts/DangNhap/Login";
+//
+//        }
+//
+//        KhachHang khachHangData = khachHangRepository.findByEmailAndMatKhau(khachHang.getEmail(), khachHang.getMatKhau());
+//
+//        //Đăng nhập thành công
+//
+//        if (khachHangData != null) {
+//
+//            UUID idKhachHang = khachHangData.getId(); //tìm kiếm mã khách hàng
+//            String maKH = khachHangData.getMaKhachHang();
+//
+//            session.setAttribute("khachHangLog", khachHangData);
+//            session.setAttribute("maKH", maKH);
+//            session.setAttribute("idKhachHang", idKhachHang);//Lưu lại mã trong quá trình làm việc
+//
+////            return "redirect:/TrangChu/listGiayTheThao";
+//            return "redirect:/KhachHang/showSweetAlertLoginSuccess";
+//
+//
+//        } else if (khachHangData == null) {
+//
+//            session.setAttribute("KhachHangNull", "Xin lỗi tài khoản này không tồn tại !");
+//            System.out.println("Xin lỗi tài khoản này không tồn tại !");
+//            return "/templates/Users/Layouts/DangNhap/Login";
+//
+//        }
+//
+//        model.addAttribute("erLogLogin", "Email hoặc mật khẩu không đúng !");
+//        System.out.println("Lỗi dữ liệu !");
+//        return "/templates/Users/Layouts/DangNhap/Login";
+//
+//
+//    }
 
-
-    @PostMapping("/loginViewDangNhap")
+    @PostMapping("KhachHang/loginViewDangNhap")
     public String checkLoginKhachHang(Model model,
                                       @ModelAttribute("khachHang") KhachHang khachHang,
                                       @Valid BindingResult result,
@@ -421,6 +482,7 @@ public class KhachHangController {
             session.setAttribute("maKH", maKH);
             session.setAttribute("idKhachHang", idKhachHang);//Lưu lại mã trong quá trình làm việc
 
+//            return "redirect:/TrangChu/listGiayTheThao";
             return "redirect:/KhachHang/showSweetAlertLoginSuccess";
 
 
@@ -442,12 +504,12 @@ public class KhachHangController {
 
 
     //Todo code đăng xuất tài khoản khách hàng
-    @GetMapping("/dangXuat")
+    @GetMapping("KhachHang/dangXuat")
     public String logout(Model model,
                          HttpSession session,
                          RedirectAttributes attributes){
 
-     session.invalidate();
+     session.invalidate();//Hủy toàn bộ quá trình phiên làm việc
      attributes.addFlashAttribute("messageLogout","Đăng xuất tài khoản thành công !");
 
         return "redirect:/KhachHang/loginViewDangNhap";
@@ -455,7 +517,7 @@ public class KhachHangController {
     }
 
 
-    @GetMapping("/search")
+    @GetMapping("KhachHang/search")
     public String searchCoGiay(@RequestParam(value = "tenKhachHang", required = false) String tenKhachHang, Model model) {
         List<KhachHang> searchResults;
         if (tenKhachHang != null) {
@@ -469,11 +531,11 @@ public class KhachHangController {
         } else {
             model.addAttribute("messageFind", "Bạn hãy nhập tên khách hàng muốn tìm kiếm!");
         }
-        return "/KhachHang/index";
+        return "/KhachHang/list";
     }
 
     //Todo codo log Khách hàng chưa đăng nhập
-    @GetMapping("/showSweetAlertLogin")
+    @GetMapping("KhachHang/showSweetAlertLogin")
     public String showLogErNotLogin(){
 
         System.out.println("Bạn chưa đăng nhập tài khoản cho người dùng");
@@ -482,7 +544,7 @@ public class KhachHangController {
     }
 
     //Todo code log thay đổi thông tin khách hàng thành công!
-    @GetMapping("/showSweetAlertThayDoiThanhCong")
+    @GetMapping("KhachHang/showSweetAlertThayDoiThanhCong")
     public String thayDoiThongTinKhachHangThanhCong(){
 
         System.out.println("Thay đổi thông tin khách hàng thành công!");
@@ -680,7 +742,7 @@ public class KhachHangController {
 
 
     //Todo code log thông báo thay đổi mật khẩu thành công
-    @GetMapping("/ThayDoiMatKhauThanhCong")
+    @GetMapping("KhachHang/ThayDoiMatKhauThanhCong")
     public String showViewThayDoiTaiKhoanThanhCong(){
 
         System.out.println("Thay đổi mật khẩu khách hàng thành công !");
@@ -689,7 +751,7 @@ public class KhachHangController {
     }
 
     //Todo code view thay đổi thông tin của khách hàng
-    @GetMapping("/viewQuenMatKhau/*")
+    @GetMapping("/KhachHang/viewQuenMatKhau/*")
     public String viewQuenMatKhau(HttpServletRequest request, Model model) {
         String url = request.getRequestURI();
         String[] p = url.split("/KhachHang/viewQuenMatKhau/");
@@ -706,7 +768,7 @@ public class KhachHangController {
     }
 
     //Todo code khách hàng quên mật khẩu đăng nhập
-    @PostMapping("/QuenMatKhau")
+    @PostMapping("/KhachHang/QuenMatKhau")
     public String saveKhachHangQuenMatKhau(
 
             Model model,

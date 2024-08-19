@@ -138,7 +138,7 @@
                                     value="0"
                             />
                             <label class="form-check-label" for="notYetApplied">
-                                Chưa áp dụng
+                                Chưa kích hoạt
                             </label>
                         </div>
                     </div>
@@ -186,10 +186,10 @@
 
                 </div>
             </div>
-            <div class="mb-3" id="quality-row">
-                <span>Số bản ghi:</span>
-                <span>${list.getTotalElements()}</span>
-            </div>
+<%--            <div class="mb-3" id="quality-row">--%>
+<%--                <span>Số bản ghi:</span>--%>
+<%--                <span>${list.getTotalElements()}</span>--%>
+<%--            </div>--%>
         </div>
         <div class="col-9 promotion">
             <div class="btn-function">
@@ -237,7 +237,7 @@
                             <td>${gg.phanTramGiam}</td>
                             <td><b>Từ:</b> ${gg.ngayBatDau} <br><b>Đến:</b> ${gg.ngayKetThuc}</td>
                             <td style="max-width: 100px;">${hinhThuc}</td>
-                            <td style="color: black">${gg.trangThai==1?"Kích hoạt":"Chưa áp dụng"}</td>
+                            <td style="color: black">${gg.trangThai==1?"Kích hoạt":"Chưa kích hoạt"}</td>
                             <td>
 
                                         <a href="${pageContext.request.contextPath}/chuongTrinhGiamGia/${link}/detail?id=${gg.id}"
@@ -253,15 +253,6 @@
                     </c:forEach>
                 </c:if>
 
-                <!-- <tr>
-                  <td>1</td>
-                  <td>Khuyến mại ngày 18/10</td>
-                  <td>100%</td>
-                  <td>12/10/2023</td>
-                  <td>20/10/2023</td>
-                  <td>Hóa đơn - Giảm giá hóa đơn</td>
-                  <td>Kích hoạt</td>
-                </tr> -->
                 </tbody>
             </table>
             <ul class="pagination" style="margin-left: 500px">

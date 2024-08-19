@@ -1,6 +1,9 @@
-package com.example.sd_57_datn.Controller.Utils;
+package com.example.sd_57_datn.controller.Utils;
 
 public class Constant {
+
+    private Constant() {
+    }
 
     public static final  String accessKey = "M8brj9K6E22vXoDB";
     public static final String serectkey = "nqQiVSgDMy809JoPF6OzP5OdBUB550Y4";

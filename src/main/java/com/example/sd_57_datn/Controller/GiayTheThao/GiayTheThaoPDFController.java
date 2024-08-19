@@ -1,6 +1,7 @@
-package com.example.sd_57_datn.Controller.GiayTheThao;
+package com.example.sd_57_datn.controller.GiayTheThao;
 
-import com.example.sd_57_datn.Model.GiayTheThaoChiTiet;
+
+import com.example.sd_57_datn.model.GiayTheThaoChiTiet;
 import com.lowagie.text.Font;
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.PdfPCell;

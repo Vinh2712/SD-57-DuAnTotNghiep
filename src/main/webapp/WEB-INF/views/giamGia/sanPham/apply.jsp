@@ -101,7 +101,7 @@ uri="http://java.sun.com/jsp/jstl/functions"%>
         <div class="row row-info">
           <div class="col-2"><label class="label name" style="color: black">Trạng thái:</label></div>
           <div class="col-10">
-            ${ctggSP.trangThai==1?'Kích hoạt':'Chưa áp dụng'}
+            ${ctggSP.trangThai==1?'Kích hoạt':'Chưa kích hoạt'}
           </div>
         </div>
         <div class="row row-info">
@@ -140,7 +140,7 @@ uri="http://java.sun.com/jsp/jstl/functions"%>
         <th>Tên giày thể thao</th>
         <th>Giá bán</th>
         <th>Mô tả</th>
-        <th>Trạng thái</th>
+<%--        <th>Trạng thái</th>--%>
         </thead>
         <tbody>
         <c:if test="${f:length(list)==0}">
@@ -166,7 +166,7 @@ uri="http://java.sun.com/jsp/jstl/functions"%>
                   <c:otherwise>N/A</c:otherwise>
                 </c:choose>
               </td>
-              <td>${gtt.trangThai==0 ? 'Đã kích hoạt': 'Chưa kích hoạt'}</td>
+<%--              <td>${gtt.trangThai==0 ? 'Đã kích hoạt': 'Chưa kích hoạt'}</td>--%>
 
             </tr>
           </c:forEach>
@@ -211,7 +211,22 @@ uri="http://java.sun.com/jsp/jstl/functions"%>
     
     }
 
+
     function add() {
+      var ngayBatDau = new Date("${ctggSP.ngayBatDau}");
+      var ngayKetThuc = new Date("${ctggSP.ngayKetThuc}");
+      var today = new Date();
+
+      if (today < ngayBatDau || today > ngayKetThuc) {
+        alert("Ngày hiện tại không nằm trong khoảng thời gian áp dụng chương trình.");
+        return;
+      }
+
+      var trangThai = "${ctggSP.trangThai}"; // Chận theo trạng thái 0
+      if (trangThai == 0) { // Giả sử trạng thái 0 là 'Chưa kích hoạt'
+        alert("Chương trình giảm giá chưa kích hoạt. Không thể áp dụng sản phẩm.");
+        return;
+      }
       if(listID.length>0){
         var xhr = new XMLHttpRequest();
         xhr.open("POST", "${pageContext.request.contextPath}/chuongTrinhGiamGia/sanPham/apply?id=${id}");

@@ -1,8 +1,8 @@
-package com.example.sd_57_datn.Service.ViTien;
+package com.example.sd_57_datn.service.ViTien;
 
-
-import com.example.sd_57_datn.Model.GiaoDichViChiTiet;
-import com.example.sd_57_datn.Repository.ViTien.giaoDichViChiTietRepository;
+import com.example.sd_57_datn.model.GiaoDichViChiTiet;
+import com.example.sd_57_datn.repository.ViTien.giaoDichViChiTietRepository;
+import com.example.sd_57_datn.service.ViTien.Impl.giaoDichViChiTietServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +14,7 @@ import java.util.UUID;
 public class giaoDichViChiTietService implements giaoDichViChiTietServiceImpl{
 
     @Autowired
-    private giaoDichViChiTietRepository giaoDichViChiTietRepository;
+    giaoDichViChiTietRepository giaoDichViChiTietRepository;
 
     @Override
     public List<GiaoDichViChiTiet> findAllByKhachHang(UUID id) {

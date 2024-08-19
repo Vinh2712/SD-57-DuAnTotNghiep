@@ -46,13 +46,14 @@
 
 </head>
 <body>
+<%--<%@ include file="../../../templates/Admin/Layouts/GiayTheThao/_HeaderGiayTheThao.jsp" %>--%>
 
 <%@ include file="../../../templates/Admin/Layouts/GiayTheThao/_HeaderGiayTheThaoHoaDon.jsp" %>
 
 <div class="container">
 
     <div class="vertical-menu" style="background-color: #bac8f3">
-        <a href="/Admin/xacNhanDonHangKhachHangAll" style="color: black">All trạng thái đơn hàng</a>
+        <a href="/Admin/xacNhanDonHangKhachHangAll" style="color: black">Lịch sử</a>
         <a href="/Admin/xacNhanDonHangKhachHang" style="color: black">Chờ xác nhận</a>
         <a href="/Admin/HoaDon/XacNhanHoaDonDangDongGoi" style="">Đang đóng gói</a>
         <a href="/Admin/HoaDon/XacNhanHoaDonKhachHangDangGiao"> Đang giao</a>
@@ -62,7 +63,7 @@
 
    <br>
     <div style="overflow-x: auto;width: 100%">
-        <h3 style="text-align: center;color: black;margin-bottom: 50px;margin-top: 10px">All Trạng thái các đơn hàng</h3>
+        <h3 style="text-align: center;color: black;margin-bottom: 50px;margin-top: 10px">LỊCH SỬ ĐƠN HÀNG</h3>
         <form  method="post" action="/HoaDon/Admin/TrangThaiDonHangAllView">
             <table class="table table-striped;" style="border-radius: 10px 10px 10px">
                 <tr>
@@ -73,7 +74,6 @@
                     <td scope="col" style="color: black;font-weight: bold;font-size: 17px;text-align: center;background-color: #bac8f3;width:300px">Thông tin nhận hàng</td>
 <%--                    <td scope="col" style="color: black;font-weight: bold;font-size: 17px;text-align: center;background-color: #bac8f3;width: 300px">Ghi chú</td>--%>
                     <td scope="col" style="color: black;font-weight: bold;font-size: 17px;background-color: #bac8f3;width: 130px">Hình thức</td>
-                    <td scope="col" style="color: black;font-weight: bold;font-size: 17px;background-color: #bac8f3;width: 130px">Loại</td>
                     <td scope="col" style="color: black;font-weight: bold;font-size: 17px;background-color: #bac8f3;width: 130px">Trạng thái</td>
                     <td scope="col" style="color: black;font-weight: bold;font-size: 17px;background-color: #bac8f3;width: 130px">Functions</td>
 
@@ -95,14 +95,7 @@
                             <fmt:formatNumber type="" value="${list.thanhTien}" pattern="#,##0.###" /> VNĐ
                         </td>
                         <td style="font-size: 14px;color: black;font-weight: bold">${list.ghiChu}</td>
-<%--                        <td style="font-size: 14px; color: black; font-weight: bold">--%>
-<%--                            <c:choose>--%>
-<%--                                <c:when test="${not empty list.mess}">${list.mess}</c:when>--%>
-<%--                                <c:otherwise>N/A</c:otherwise>--%>
-<%--                            </c:choose>--%>
-<%--                        </td>--%>
                         <td style="font-size: 14px;color: black;font-weight: bold">${list.hinhThuc == 1 ? "Tại quầy" : "Online"}</td>
-                        <td style="font-size: 14px;color: black;font-weight: bold">${list.trangThaiMoney == 1 ? "Đã thanh toán" : "Chưa thanh toán"}</td>
                         <td style="font-size: 14px;color: black;font-weight: bold">
                                 <c:choose>
                                     <c:when test="${list.trangThai == 0}">
@@ -129,7 +122,7 @@
                                 </c:choose>
                         </td>
                          <td style="font-size: 14px;color: black;font-weight: bold">
-                             <button type="submit" name="selectedIdHoaDon" value="${list.id}" class="btn btn-primary">Views</button>
+                             <button type="submit" name="selectedIdHoaDon" value="${list.id}" class="btn btn-primary">Chi tiết</button>
                          </td>
 
                     </tr>

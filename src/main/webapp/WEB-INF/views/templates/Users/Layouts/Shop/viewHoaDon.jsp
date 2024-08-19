@@ -101,7 +101,7 @@
                         <span class="">ĐỊA CHỈ NHẬN HÀNG</span>
                     </h5>
                     <input type="checkbox" name="diaChiChon" value="diaChiCu" id="checkbox1">
-                    <label for="checkbox1" class="label_check_box">Địa chỉ ban đầu</label>
+                    <label for="checkbox1" class="label_check_box">Địa chỉ đã đăng ký</label>
                     <br>
                     <div id="view_dia_chi_cu" style="display:block">
                         <div class="bg-light p-30 mb-5">
@@ -237,7 +237,7 @@
                 </div>
                 <div class="col-lg-6">
                     <h5 class="section-title position-relative text-uppercase mb-3"><span
-                            class="">Order Total</span></h5>
+                            class="">Thông tin đơn hàng chi tiết</span></h5>
                     <div class="bg-light p-30 mb-5">
                         <div class="border-bottom" style="margin-top: 20px">
                             <br>
@@ -337,7 +337,7 @@
                             <div class="form-group mb-4">
                                 <div class="custom-control custom-radio">
                                     <input type="radio" class="custom-control-input" value="momo" name="payment" id="banktransfer1">
-                                    <label class="custom-control-label" for="banktransfer1" style="margin-top: 15px;margin-left: 15px">Thanh toán momo</label>
+                                    <label class="custom-control-label" for="banktransfer1" style="margin-top: 15px;margin-left: 15px">QR MOMO</label>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -346,12 +346,6 @@
                                     <label class="custom-control-label" for="directcheck" style="margin-left: 15px">
                                         Thanh toán khi nhận hàng
                                     </label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="custom-control custom-radio">
-                                    <input type="radio" class="custom-control-input" value="vi" name="payment" id="vi">
-                                    <label class="custom-control-label" for="vi" style="margin-left: 15px">Thanh toán bằng ví điện tử</label>
                                 </div>
                             </div>
                             <div class="thongBao">

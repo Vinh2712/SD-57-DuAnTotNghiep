@@ -1,11 +1,10 @@
-package com.example.sd_57_datn.Service.HoaDon;
+package com.example.sd_57_datn.service.HoaDon;
 
-
-import com.example.sd_57_datn.Model.*;
-import com.example.sd_57_datn.Repository.GiayTheThao.GiayTheThaoChiTietRepository;
-import com.example.sd_57_datn.Repository.HoaDon.HoaDonChiTietRepository;
-import com.example.sd_57_datn.Repository.HoaDon.HoaDonRepository;
-import com.example.sd_57_datn.Repository.KhachHang.KhachHangRepository;
+import com.example.sd_57_datn.model.*;
+import com.example.sd_57_datn.repository.HoaDon.HoaDonChiTietRepository;
+import com.example.sd_57_datn.repository.HoaDon.HoaDonRepository;
+import com.example.sd_57_datn.repository.KhachHangRepository;
+import com.example.sd_57_datn.repository.SanPham.GiayTheThao.GiayTheThaoChiTietRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

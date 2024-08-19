@@ -1,11 +1,12 @@
-package com.example.sd_57_datn.Controller.GiayTheThao;
+package com.example.sd_57_datn.controller.GiayTheThao;
 
-import com.example.sd_57_datn.Model.*;
-import com.example.sd_57_datn.Repository.GiayTheThao.GiayTheThaoChiTietRepository;
-import com.example.sd_57_datn.Repository.GiayTheThao.GiayTheThaoRepository;
-import com.example.sd_57_datn.Repository.GiayTheThao.ImageRepository;
-import com.example.sd_57_datn.Repository.SanPham.ThuocTinh.*;
-import com.example.sd_57_datn.Service.GiayTheThao.GiayTheThaoService;
+import com.example.sd_57_datn.model.*;
+
+import com.example.sd_57_datn.repository.ImageRepository;
+import com.example.sd_57_datn.repository.SanPham.AllGiayTheThao.*;
+import com.example.sd_57_datn.repository.SanPham.GiayTheThao.GiayTheThaoChiTietRepository;
+import com.example.sd_57_datn.repository.SanPham.GiayTheThao.GiayTheThaoRepository;
+import com.example.sd_57_datn.service.GiayTheThao.GiayTheThaoService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lowagie.text.DocumentException;
 import jakarta.servlet.ServletContext;
@@ -39,6 +40,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @Controller
+//@RequestMapping(value = "GiayTheThao")
 public class GiayTheThaoController {
 
     @Autowired
@@ -167,7 +169,7 @@ public class GiayTheThaoController {
     }
 
 
-    //Todo caode create bảng giầy thể thao
+    //Todo code create bảng giầy thể thao
     private boolean tenGiayTheThaoCheckTrung(String tenGiayTheThao){
 
         for(GiayTheThao giayTheThao: giayTheThaoRepository.findAll()){
@@ -741,30 +743,6 @@ public class GiayTheThaoController {
 
 
     }
-
-
-    //Todo code thống kê data cho giầy thể thao
-
-    @GetMapping("/thongke-data")
-    @ResponseBody
-    public String thongKeData() {
-        List<GiayTheThaoChiTiet> sanPhams = giayTheThaoChiTietRepository.findAll();
-
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        try {
-
-            String jsonData = objectMapper.writeValueAsString(sanPhams);
-            return jsonData;
-
-        } catch (Exception e) {
-
-            e.printStackTrace();
-            return "";
-
-        }
-    }
-
 
     //Todo code các model để lưu lại dữ liệu
 

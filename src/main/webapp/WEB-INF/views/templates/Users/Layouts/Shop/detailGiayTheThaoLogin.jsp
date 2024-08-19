@@ -9,7 +9,7 @@
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>Thông tin giầy thể thao</title>
+    <title>Chi tiết sản phẩm ON</title>
     <link href="/css/KhachHang/TrangChuDetailGiayTheThao.css" rel="stylesheet">
     <script src="path/to/jquery.min.js"></script>
     <script src="path/to/magnific-popup.js"></script>

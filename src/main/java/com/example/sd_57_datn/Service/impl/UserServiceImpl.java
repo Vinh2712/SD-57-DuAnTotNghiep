@@ -1,7 +1,7 @@
-package com.example.sd_57_datn.Service.impl;
+package com.example.sd_57_datn.service.impl;
 
 
-import com.example.sd_57_datn.Model.User;
+import com.example.sd_57_datn.model.User;
 
 import java.util.UUID;
 

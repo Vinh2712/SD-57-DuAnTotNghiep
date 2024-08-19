@@ -77,7 +77,8 @@
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/TrangChu/Admin/home">
             <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fas fa-laugh-wink"></i>
+<%--                icon mat --%>
+<%--                <i class="fas fa-laugh-wink"></i>--%>
             </div>
             <div class="sidebar-brand-text mx-3">
                 POLY SHOES
@@ -85,7 +86,7 @@
         </a>
         <!-- Divider -->
         <hr class="sidebar-divider">
-        <!-- How to code  Nav Item - Pages Collapse Menu -->
+<%-- Menu dọc      --%>
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                aria-expanded="true" aria-controls="collapsePages">
@@ -98,8 +99,6 @@
 
 <%--                    <h6 class="collapse-header" style="color: black; font-size: 13px;">Pages</h6>--%>
                     <a class="collapse-item" href="/CoGiay/hien-thi">Cổ giầy</a>
-
-
                     <a class="collapse-item" href="/kieuBuoc/hien-thi">Kiểu buộc</a>
                     <a class="collapse-item" href="/chatLieu/hien-thi">Chất liệu</a>
                     <a class="collapse-item" href="/congDung/hien-thi">Công dụng</a>
@@ -132,7 +131,7 @@
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item" href="/user/hien-thi">Nhân viên</a>
-                    <a class="collapse-item" href="/khachhang">Khách hàng</a>
+                    <a class="collapse-item" href="/KhachHang/list">Khách hàng</a>
                 </div>
             </div>
         </li>
@@ -179,13 +178,6 @@
                 <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                     <div class="input-group">
-                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                               aria-label="Search" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" type="button">
-                                <i class="fas fa-search fa-sm"></i>
-                            </button>
-                        </div>
 
                     </div>
 

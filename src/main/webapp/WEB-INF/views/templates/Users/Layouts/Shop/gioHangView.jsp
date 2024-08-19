@@ -178,30 +178,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<%----%>
 
-<%--<script>--%>
-<%--    function validateQuantity() {--%>
-<%--        // Get all quantity input elements--%>
-<%--        var quantityInputs = document.getElementsByName("soLuong");--%>
-
-<%--        // Check if any quantity is 0--%>
-<%--        for (var i = 0; i < quantityInputs.length; i++) {--%>
-<%--            if (parseInt(quantityInputs[i].value) === 0) {--%>
-<%--                // Display an error message--%>
-<%--                alert("Quantity must be greater than 0. Please update the quantity.");--%>
-
-<%--                // Prevent form submission--%>
-<%--                return false;--%>
-<%--            }--%>
-<%--        }--%>
-
-<%--        // Allow form submission if all quantities are greater than 0--%>
-<%--        return true;--%>
-<%--    }--%>
-<%--</script>--%>
-
-<%----%>
 
 
 <script>
@@ -300,7 +277,7 @@
         var availableQuantity = parseInt(quantityInput.getAttribute('data-available-quantity'));
 
         if (operation === "increase") {
-            if (currentQuantity < 5) {
+            if (currentQuantity < 50) {
                 if (currentQuantity + 1 > availableQuantity) {
                     // Số lượng tăng lên vượt quá số lượng có trong kho
                     Swal.fire({
@@ -315,7 +292,7 @@
             } else {
                 Swal.fire({
                     icon: 'success',
-                    title: '<span style="font-size: 17px; color: red">Xin lỗi, chỉ được phép mua tối đa 5 sản phẩm.</span>',
+                    title: '<span style="font-size: 17px; color: red">Xin lỗi, chỉ được phép mua tối đa 50 sản phẩm.</span>',
                     showConfirmButton: false,
                     timer: 1500,
                 }).then(() => {

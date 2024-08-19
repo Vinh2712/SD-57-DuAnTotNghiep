@@ -146,6 +146,7 @@
 </head>
 <body>
 <%--template của header--%>
+
 <%@ include file="../../templates/Admin/Layouts/GiayTheThao/_HeaderGiayTheThao.jsp" %>
 <%--Session--%>
 <div class="container">

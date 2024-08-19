@@ -136,7 +136,7 @@
                             value="0"
                     />
                     <label class="form-check-label" for="notYetApplied">
-                        Chưa áp dụng
+                        Chưa kích hoạt
                     </label>
                 </div>
                 <div>
@@ -170,10 +170,10 @@
                 </div>
             </div>
         </div>
-        <div class="mb-3" id="quality-row">
-            <span style="color: black;font-weight: bold;font-size: 17px">Số bản ghi:</span>
-            <span>${list.getTotalElements()}</span>
-        </div>
+<%--        <div class="mb-3" id="quality-row">--%>
+<%--            <span style="color: black;font-weight: bold;font-size: 17px">Số bản ghi:</span>--%>
+<%--            <span>${list.getTotalElements()}</span>--%>
+<%--        </div>--%>
     </div>
 
     <div class="col-9 promotion" style="width: 100%">
@@ -223,7 +223,7 @@
                                     <td><b>Từ:</b> ${gg.ngayBatDau} <br><b>Đến:</b> ${gg.ngayKetThuc}</td>
 
                                     <td>${hinhThuc}</td>
-                                    <td style="width: 100px;">${gg.trangThai==1?"Kích hoạt":"Chưa áp dụng"}</td>
+                                    <td style="width: 100px;">${gg.trangThai==1?"Kích hoạt":"Chưa kích hoạt"}</td>
                                     <td>
                                         <a href="${pageContext.request.contextPath}/chuongTrinhGiamGia/${link}/apply?id=${gg.id}"
                                            class="btn btn-primary">Áp dụng</a>

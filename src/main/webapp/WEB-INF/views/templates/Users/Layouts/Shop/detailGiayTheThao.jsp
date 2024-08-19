@@ -9,7 +9,7 @@
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>Thông tin giầy thể thao</title>
+    <title>Thông tin giầy thể thao 2</title>
     <link href="/css/KhachHang/TrangChuDetailGiayTheThao.css" rel="stylesheet">
     <script src="path/to/jquery.min.js"></script>
     <script src="path/to/magnific-popup.js"></script>
@@ -207,7 +207,7 @@
                         </div>
                         <div class="er" style="margin-top: 20px">
 <%--                            Check số lượng--%>
-                            <h6 style="color: red">${erCheckSoLuongAddToCart}</h6>
+<%--                            <h6 style="color: red">${erCheckSoLuongAddToCart}</h6>--%>
                             <h6 style="color: red">${erCheckNumberSoLuongAddToCart}</h6>
                             <h6 style="color: red">${erSoLuongAddToCartMin}</h6>
                             <h6 style="color: red">${erCheckAddToCart}</h6>
@@ -239,7 +239,7 @@
                          style="width: 100px; border: 1px solid white; border-radius: 1000px 1500px 700px; margin-top: 22px">
                 </div>
                 <div class="col-3" style="margin-left: 30px">
-                    <h4 style="margin-top: 15px">BEE SHOES</h4>
+                    <h4 style="margin-top: 15px">POLYSHOES</h4>
                     <a href="https://www.facebook.com/profile.php?id=100032748851883" style="text-decoration: none"
                        aria-label="Facebook" rel="noreferrer" target="_blank">
                         <button style="margin-bottom: 10px; height: 40px" type="submit" class="btn btn">

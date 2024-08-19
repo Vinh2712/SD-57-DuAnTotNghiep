@@ -1,16 +1,16 @@
-package com.example.sd_57_datn.Controller.BanHangTaiQuay;
+package com.example.sd_57_datn.controller.BanHangTaiQuay;
 
-import com.example.sd_57_datn.Model.*;
-import com.example.sd_57_datn.Service.GiamGia.ChuongTrinhGiamGiaChiTietGiayTheThaoService;
-import com.example.sd_57_datn.Service.GiamGia.ChuongTrinhGiamGiaChiTietHoaDonService;
-import com.example.sd_57_datn.Service.GiamGia.ChuongTrinhGiamGiaHoaDonService;
-import com.example.sd_57_datn.Service.GiayTheThao.GiayTheThaoChiTietService;
-import com.example.sd_57_datn.Service.GiayTheThao.GiayTheThaoService;
-import com.example.sd_57_datn.Service.HoaDon.HoaDonChiTietServie;
-import com.example.sd_57_datn.Service.HoaDon.HoaDonService;
-import com.example.sd_57_datn.Service.KhachHang.KhachHangService;
-import com.example.sd_57_datn.Service.SanPham.MauSacService;
-import com.example.sd_57_datn.Service.SanPham.SizeService;
+import com.example.sd_57_datn.model.*;
+import com.example.sd_57_datn.service.ChuongTrinhGiamGiaChiTietGiayTheThaoService;
+import com.example.sd_57_datn.service.ChuongTrinhGiamGiaChiTietHoaDonService;
+import com.example.sd_57_datn.service.ChuongTrinhGiamGiaHoaDonService;
+import com.example.sd_57_datn.service.GiayTheThao.GiayTheThaoChiTietService;
+import com.example.sd_57_datn.service.GiayTheThao.GiayTheThaoService;
+import com.example.sd_57_datn.service.HoaDon.HoaDonChiTietServie;
+import com.example.sd_57_datn.service.HoaDon.HoaDonService;
+import com.example.sd_57_datn.service.KhachHangService;
+import com.example.sd_57_datn.service.admin.MauSacService;
+import com.example.sd_57_datn.service.admin.SizeService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -167,6 +167,13 @@ public class BanHangTaiQuayAPIController {
     @PostMapping("/hd")
     public HoaDon createHoaDon(@RequestBody String[] strings, HttpSession session) {
         HoaDon hd = new HoaDon();
+
+        // if (strings[0].length() != 0) {
+        // UUID idUser = UUID.fromString(strings[0]);
+        // User user = new User();
+        // user.setId(idUser);
+        // hd.setUser(user);
+        // }
 
         UUID idUser = (UUID) session.getAttribute("idUser");
         User user = new User();

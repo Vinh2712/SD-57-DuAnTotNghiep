@@ -1,6 +1,6 @@
-package com.example.sd_57_datn.Repository.ViTien;
+package com.example.sd_57_datn.repository.ViTien;
 
-import com.example.sd_57_datn.Model.GiaoDichViChiTiet;
+import com.example.sd_57_datn.model.GiaoDichViChiTiet;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

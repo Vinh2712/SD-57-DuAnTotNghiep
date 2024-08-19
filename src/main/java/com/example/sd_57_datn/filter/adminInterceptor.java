@@ -2,8 +2,8 @@ package com.example.sd_57_datn.filter;
 
 
 
-import com.example.sd_57_datn.Model.Enum.RoleEnum;
-import com.example.sd_57_datn.Model.User;
+import com.example.sd_57_datn.model.Enum.RoleEnum;
+import com.example.sd_57_datn.model.User;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Component;

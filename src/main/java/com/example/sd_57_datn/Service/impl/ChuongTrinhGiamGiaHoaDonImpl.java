@@ -1,7 +1,7 @@
-package com.example.sd_57_datn.Service.impl;
+package com.example.sd_57_datn.service.impl;
 
 
-import com.example.sd_57_datn.Model.ChuongTrinhGiamGiaHoaDon;
+import com.example.sd_57_datn.model.ChuongTrinhGiamGiaHoaDon;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.multipart.MultipartFile;
@@ -19,6 +19,7 @@ public interface ChuongTrinhGiamGiaHoaDonImpl {
 
     public void update(ChuongTrinhGiamGiaHoaDon gg, UUID id);
 
+    // public void delete(UUID id);
     public ChuongTrinhGiamGiaHoaDon getOne(UUID id);
 
     public List<ChuongTrinhGiamGiaHoaDon> getList();

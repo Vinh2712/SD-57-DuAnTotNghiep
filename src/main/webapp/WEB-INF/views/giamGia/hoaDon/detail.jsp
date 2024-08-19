@@ -101,7 +101,7 @@
             <div class="row row-info">
                 <div class="col-2"><label class="label name" style="color: black;font-weight: bold;font-size: 17px">Trạng thái:</label></div>
                 <div class="col-10">
-                    ${ctggHD.trangThai==1?'Kích hoạt':ctggHD.trangThai==-1?'Hết hạn':'Chưa áp dụng'}
+                    ${ctggHD.trangThai==1?'Kích hoạt':ctggHD.trangThai==-1?'Hết hạn':'Chưa kích hoạt'}
                 </div>
             </div>
             <div class="row row-info">
